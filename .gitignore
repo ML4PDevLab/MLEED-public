@@ -1,0 +1,11 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+*.zip
+
+# Keep private submission materials outside this public repository.
+Submitted_MLEED_paper/
+clean_paper/
+MLEED*.pdf
+Supplementary Information.pdf

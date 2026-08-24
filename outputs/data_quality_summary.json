@@ -1,0 +1,22 @@
+{
+  "data_file": "mleed_country_month_2012_2025.csv",
+  "sha256": "caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7",
+  "rows": 11592,
+  "columns": 88,
+  "countries": 69,
+  "months_per_country": 168,
+  "start_month": "2012-01",
+  "end_month": "2025-12",
+  "duplicate_country_months": 0,
+  "missing_cells": 0,
+  "minimum_total_local_docs": 2,
+  "maximum_total_local_docs": 103247,
+  "checks": {
+    "balanced_panel": "pass",
+    "date_year_month_alignment": "pass",
+    "nonnegative_counts": "pass",
+    "label_total_reconciliation": "pass",
+    "normalization_reconciliation": "pass",
+    "binary_surge_indicators": "pass"
+  }
+}
