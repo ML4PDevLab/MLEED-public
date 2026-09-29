@@ -27,6 +27,21 @@ def close(observed, expected, context):
         raise ValueError(f"{context}: {observed} differs from {expected}")
 
 
+def compare_saved(observed, expected, context="saved evaluation"):
+    """Allow insignificant floating summation differences across Python versions."""
+    if isinstance(expected, dict):
+        if not isinstance(observed, dict) or observed.keys() != expected.keys():
+            raise ValueError(f"{context}: dictionary fields differ")
+        for key, value in expected.items():
+            compare_saved(observed[key], value, f"{context}/{key}")
+    elif isinstance(expected, float):
+        if not isinstance(observed, (int, float)) or isinstance(observed, bool):
+            raise ValueError(f"{context}: expected a numeric value")
+        close(observed, expected, context)
+    elif type(observed) is not type(expected) or observed != expected:
+        raise ValueError(f"{context}: saved value differs")
+
+
 def verify(mode):
     suffix = f"{mode}_BINARY_THEN_EVENTS.csv"
     labels, matrix = table(DIRECTORY / f"confusion_matrix_raw_{suffix}")
@@ -93,8 +108,7 @@ def main():
     }
     encoded = json.dumps(result, indent=2) + "\n"
     if args.check:
-        if OUTPUT.read_text() != encoded:
-            raise SystemExit("Saved evaluation verification differs from recalculated aggregates")
+        compare_saved(json.loads(OUTPUT.read_text()), result)
     else:
         OUTPUT.write_text(encoded)
     print(encoded, end="")

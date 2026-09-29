@@ -121,8 +121,8 @@
     },
     {
       "path": "scripts/verify_evaluation.py",
-      "bytes": 5007,
-      "sha256": "b4459a3532eb35940162808f2e9a9bbb88f1f8070417549c5939ab24d413ec5d"
+      "bytes": 5741,
+      "sha256": "76743f5152307002129ecda3d903c9fa3c6fe267b5067eb0bc681507d3f4968b"
     },
     {
       "path": "validation/README.md",
