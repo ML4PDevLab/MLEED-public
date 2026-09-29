@@ -11,8 +11,8 @@
     },
     {
       "path": ".github/workflows/validate-data.yml",
-      "bytes": 866,
-      "sha256": "5c90a585e9024e9a490e1ae2080fd0639964607db8d7800861960615b8b06548"
+      "bytes": 991,
+      "sha256": "170aa34a13ea939d1d5b8bbd240bf44bd08159461626b35e502e5e457edf6de3"
     },
     {
       "path": ".gitignore",
@@ -21,13 +21,13 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 1024,
-      "sha256": "eae0b96fbc84189e55017c5cadc0ee3e5beb58c7b704c43aaffbdbd536835e1b"
+      "bytes": 1414,
+      "sha256": "73cce6e81678e1bdd1841752f87e1a9be3c598cef467bb75e2a70c14abddaadf"
     },
     {
       "path": "README.md",
-      "bytes": 5901,
-      "sha256": "51ee58f205ac4775385f065ea754947291211004e9d9d340151a4d8eed040fdd"
+      "bytes": 6393,
+      "sha256": "3cb694de73b87aeecdd5998f8f9fc9fc3e2c9bf38f957ce0f1fe236ec17c7737"
     },
     {
       "path": "data/mleed_country_month_2012_2025.csv",
@@ -36,18 +36,23 @@
     },
     {
       "path": "docs/data_dictionary.md",
-      "bytes": 7066,
-      "sha256": "ad743d72f12829ec27e00f3d4fafdb00035e70f2143494823694057af1455662"
+      "bytes": 7107,
+      "sha256": "1490433379576e97c8ab3502d77d60e0867088d923877e66a00988ba73c442cd"
     },
     {
       "path": "docs/repository_scope.md",
-      "bytes": 3867,
-      "sha256": "d27426e95eebb168b5717aa971fd795284b966b27624a081c65bb6e7ba217f3c"
+      "bytes": 4386,
+      "sha256": "7e03c784174c16b4d6c0fc19d53d86622b40afd2d9c291f9e0752a3c9832e3f7"
     },
     {
       "path": "docs/reuse.md",
-      "bytes": 4717,
-      "sha256": "7a29a6a25d834584b7b6a64db4dc19e00f4255b732332786839d58f6f3cee367"
+      "bytes": 4916,
+      "sha256": "59d00890e22ae74e8f40a9c7baa394c1818270def991edd199189f748b958ec8"
+    },
+    {
+      "path": "docs/surge_reconstruction.md",
+      "bytes": 6090,
+      "sha256": "2a8db3dc16455c9028a86b2f513d4d3eeedd36ea91970effbd99934f85265368"
     },
     {
       "path": "figures/event_distribution.png",
@@ -55,14 +60,19 @@
       "sha256": "d415afe7ac72cee064b05bb7d9f973c37017fa1a6188588183d5a83309ab7d9e"
     },
     {
+      "path": "licenses/MLP-data-intro-MIT.txt",
+      "bytes": 1083,
+      "sha256": "2ad0625854a4e51c42cda8f336014ab858e571614bac7cf405b06d6046d92e0b"
+    },
+    {
       "path": "metadata/schema.json",
-      "bytes": 32926,
-      "sha256": "abff9d390b5e7b62f0a103d2d51247dc310652eeb18b45ca58769797ff559b44"
+      "bytes": 33566,
+      "sha256": "1b83704471c558e2f7c34e89cfd12875a469d10e70978ca81058b3af07243adf"
     },
     {
       "path": "metadata/snapshot.json",
-      "bytes": 933,
-      "sha256": "a8d133424a4c3c614a06d2c5ae7c05eafe634145ee46823a9ae232f56343626f"
+      "bytes": 1215,
+      "sha256": "267e5648ccdeeacfe82273235b606945c70ebc802bb4e86b669808d497550f59"
     },
     {
       "path": "outputs/country_coverage.csv",
@@ -76,8 +86,8 @@
     },
     {
       "path": "outputs/evaluation_verification.json",
-      "bytes": 1838,
-      "sha256": "f61b29da612d8301218a2259e6cff04a28230b73b0f33e5dac30a35da321424a"
+      "bytes": 2216,
+      "sha256": "7fb963158ec1575e0b338690bd0b40a7caa9b6bd0dd8e289b4efc3e49f73e8a4"
     },
     {
       "path": "outputs/event_distribution.csv",
@@ -90,19 +100,24 @@
       "sha256": "db9a24094cc6c0911b78359cc3627bf9565bad663ca98a1e0cc108811375c421"
     },
     {
+      "path": "outputs/surge_reconstruction_summary.json",
+      "bytes": 2981,
+      "sha256": "0d8444606781360aeebe62332de4870260a609166f905187fb652564fb7225fe"
+    },
+    {
       "path": "outputs/year_coverage.csv",
       "bytes": 974,
       "sha256": "03d06910e45362eca11ca144570c805e1cd4e272ba3d18ce066a9a26fc0c5e21"
     },
     {
       "path": "requirements.txt",
-      "bytes": 47,
-      "sha256": "598b8e4b3aeeaa1656b5420afa348f04679434d606ec828552031c8852ddf51a"
+      "bytes": 61,
+      "sha256": "87bcdac17ef47ef165ea9ef96179776c97620ca09c3c3d46ee074826236cde5c"
     },
     {
       "path": "scripts/build_manifest.py",
-      "bytes": 2977,
-      "sha256": "d0d9b429e9c9f20922afd2bc8529f501dcf03240b0a0e05b78829092e98907be"
+      "bytes": 3244,
+      "sha256": "e0233d4c751a8cb1ecdfbf918e34b2cd2f415cabafc29d23671e2b77d0052adb"
     },
     {
       "path": "scripts/build_overview.py",
@@ -115,19 +130,34 @@
       "sha256": "009d2aa99bc8781fe5614819b6a883cce92bec4e9e41f54f9de79f07df1a1dfe"
     },
     {
+      "path": "scripts/recovered_surge.py",
+      "bytes": 8069,
+      "sha256": "02f9a2e7f473949c4b3c770bab7a1ef7079999d465b988509a36abd545ba97e5"
+    },
+    {
+      "path": "scripts/reproduce_surges.py",
+      "bytes": 7856,
+      "sha256": "082c4110f4ee965341c6ab2005f77455ddc4cd3fd7dd17d43f001ca6a8eb1fb7"
+    },
+    {
       "path": "scripts/test_validation.py",
       "bytes": 2942,
       "sha256": "1aacf02c75c28d442151d5e85a0a8cdb6861da5fc4cbf15ed8cd6d3482313256"
     },
     {
       "path": "scripts/verify_evaluation.py",
-      "bytes": 5741,
-      "sha256": "76743f5152307002129ecda3d903c9fa3c6fe267b5067eb0bc681507d3f4968b"
+      "bytes": 7154,
+      "sha256": "5be95798e41f0e15064fa3b91c230fef905b64a8331008768d22675c85af8e07"
     },
     {
       "path": "validation/README.md",
-      "bytes": 3826,
-      "sha256": "d36057a9bcacc60cd4c7c197503146a8e5ad323fee8c5c0cce06393221b4bb24"
+      "bytes": 4874,
+      "sha256": "a26966be7c995efd6d5041c7bbc1afe2096ad10de4c0485938da80b71f8c710f"
+    },
+    {
+      "path": "validation/binary_confusion_matrix.csv",
+      "bytes": 111,
+      "sha256": "dfb0839583d8c913c0176533b538bad7f30a3d552cfc6c99f3c28e0016ea6b64"
     },
     {
       "path": "validation/classification/classification_report_primary_BINARY_THEN_EVENTS.csv",
@@ -166,8 +196,13 @@
     },
     {
       "path": "validation/provenance.json",
-      "bytes": 3170,
-      "sha256": "987486c5fc0cfd3d39940ffa778449af1cc5fb7a0b3abcf640ce78e1af658ef7"
+      "bytes": 4271,
+      "sha256": "c638a7d4c708e2b3f57c4a670113f1adbbd2e5c74d33edc752fffd855bef43d0"
+    },
+    {
+      "path": "validation/surge_provenance.json",
+      "bytes": 2267,
+      "sha256": "71249173f35066e0a4b51c094a441c34ae7ff027366521924e05d91a8c5ad690"
     }
   ]
 }

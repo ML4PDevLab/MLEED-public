@@ -32,5 +32,8 @@ jobs:
       - name: Check corruption detection and reusable export
         run: python scripts/test_validation.py
 
+      - name: Verify recovered surge comparison on the frozen panel
+        run: python scripts/reproduce_surges.py --check
+
       - name: Verify deposited file checksums
         run: python scripts/build_manifest.py --check

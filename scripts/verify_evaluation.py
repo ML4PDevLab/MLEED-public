@@ -87,11 +87,33 @@ def verify(mode):
             "checks": "Raw matrices, row-normalized matrices, class metrics and averages reconcile."}
 
 
+def verify_binary():
+    columns, matrix = table(ROOT / "validation/binary_confusion_matrix.csv")
+    if columns != ["predicted_nonenvironmental", "predicted_environmental"] or list(matrix) != ["nonenvironmental", "environmental"]:
+        raise ValueError("Unexpected binary matrix orientation")
+    if any(len(row) != 2 or any(not math.isfinite(x) or x < 0 or not x.is_integer() for x in row) for row in matrix.values()):
+        raise ValueError("Binary confusion matrix must contain nonnegative integer counts")
+    tn, fp = map(int, matrix["nonenvironmental"])
+    fn, tp = map(int, matrix["environmental"])
+    provenance = json.loads((ROOT / "validation/provenance.json").read_text())["binary_gate"]
+    if [[tn, fp], [fn, tp]] != provenance["matrix"]:
+        raise ValueError("Binary counts differ from recorded source extraction")
+    n = tn + fp + fn + tp
+    if n != provenance["source_rows"]:
+        raise ValueError("Binary counts do not reconcile with the source sample size")
+    return {"cases": n, "true_negative": tn, "false_positive": fp,
+            "false_negative": fn, "true_positive": tp, "correct": tn + tp,
+            "accuracy": (tn + tp) / n, "environmental_precision": tp / (tp + fp),
+            "environmental_recall": tp / (tp + fn),
+            "scope": "Upstream binary_env gate; not inferred from the final multiclass predictions."}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Verify saved output without rewriting it")
     args = parser.parse_args()
     result = {
+        "binary_gate": verify_binary(),
         "primary": verify("primary"),
         "primary_or_secondary": verify("primary_or_secondary"),
         "scope": "Arithmetic verification of archived aggregate evaluation reports. Does not verify training/test independence or model-version linkage to the public panel.",

@@ -1,0 +1,73 @@
+{
+  "code_revision": "fea13989b8ee6803d1ed82f091097730ae04f727",
+  "mode": "TensorFlow disabled; loaded_model=None; recovered definitions unchanged",
+  "parameters": {
+    "lookaround": 12,
+    "std_dev": 0.88,
+    "normalize": 1,
+    "alpha": 0.05,
+    "beta": 0.2,
+    "count_threshold_exclusive": 3
+  },
+  "frozen_input_sha256": "caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7",
+  "frozen_input": {
+    "source_rows": 11592,
+    "source_countries": 69,
+    "source_start_month": "2012-01",
+    "source_end_month": "2025-12",
+    "source_missing_normalized_cells": 0,
+    "comparison_cells": 231840,
+    "candidate_vs_own_source_shock_differences": 10131,
+    "candidate_vs_own_source_screen_differences": 6053,
+    "candidate_vs_frozen_shock_differences": 10131,
+    "candidate_vs_frozen_screen_differences": 6053,
+    "own_source_vs_frozen_shock_differences": 0,
+    "own_source_vs_frozen_screen_differences": 0,
+    "own_source_vs_frozen_raw_count_differences": 0,
+    "own_source_vs_frozen_normalized_differences": 0,
+    "candidate_positive_shocks": 23777,
+    "stored_frozen_positive_shocks": 13986
+  },
+  "full_window_comparisons": [
+    {
+      "revision": "622e82535612476e7952a141623c3c48ecbee85a",
+      "source_file_sha256": "18648b534ae6d17298ae66bdba4e83fb94685fbf914ed7f129a554f9045876a4",
+      "source_rows": 12324,
+      "source_countries": 70,
+      "source_start_month": "2012-01",
+      "source_end_month": "2026-09",
+      "source_missing_normalized_cells": 2100,
+      "comparison_cells": 231840,
+      "candidate_vs_own_source_shock_differences": 0,
+      "candidate_vs_own_source_screen_differences": 0,
+      "candidate_vs_frozen_shock_differences": 105,
+      "candidate_vs_frozen_screen_differences": 52,
+      "own_source_vs_frozen_shock_differences": 105,
+      "own_source_vs_frozen_screen_differences": 52,
+      "own_source_vs_frozen_raw_count_differences": 4743,
+      "own_source_vs_frozen_normalized_differences": 29556,
+      "candidate_positive_shocks": 13985,
+      "stored_frozen_positive_shocks": 13986
+    },
+    {
+      "revision": "cbfc9d5fa7355c997f5efccdfb2047a1ca550551",
+      "source_file_sha256": "5b9d32da2c2881c11cc009c891d26465e04b6c0325ecf6166df9aa4fc019d6f0",
+      "source_rows": 12080,
+      "source_countries": 69,
+      "source_start_month": "2012-01",
+      "source_end_month": "2026-09",
+      "source_missing_normalized_cells": 2100,
+      "comparison_cells": 231840,
+      "candidate_vs_own_source_shock_differences": 0,
+      "candidate_vs_own_source_screen_differences": 0,
+      "candidate_vs_frozen_shock_differences": 468,
+      "candidate_vs_frozen_screen_differences": 290,
+      "own_source_vs_frozen_shock_differences": 468,
+      "own_source_vs_frozen_screen_differences": 290,
+      "own_source_vs_frozen_raw_count_differences": 0,
+      "own_source_vs_frozen_normalized_differences": 0,
+      "candidate_positive_shocks": 13874,
+      "stored_frozen_positive_shocks": 13986
+    }
+  ]
+}

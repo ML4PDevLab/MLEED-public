@@ -16,6 +16,7 @@ This is a **pre-publication snapshot**, not a certified release of the current l
 | [Country coverage](outputs/country_coverage.csv) and [year coverage](outputs/year_coverage.csv) | Observed reporting volume in the deposited file |
 | [Validation materials](validation/README.md) | Classifier matrices/reports and a human-review summary, with limitations |
 | [Reuse guide](docs/reuse.md) | Rates, category pooling, joins, zeros, and examples |
+| [Surge reconstruction](docs/surge_reconstruction.md) | Recovered code, full-input comparisons, and unresolved frozen-indicator lineage |
 | [Snapshot metadata](metadata/snapshot.json), [manifest](metadata/release_manifest.json), and [checksums](SHA256SUMS) | Explicit inventory and file identity |
 | [Release scope](docs/repository_scope.md) and [changelog](CHANGELOG.md) | Available materials and remaining publication requirements |
 
@@ -25,7 +26,7 @@ The 16 substantive categories cover environmental hazards; displacement, environ
 
 Each label has a raw count, a normalized value (`Norm`), and two stored surge indicators. A normalized value is a label count divided by all locally relevant documents in that country-month. Multiply it by 10,000 for **labels per 10,000 documents**.
 
-The historical surge algorithm is not reproduced here. In 36 cells, the field ending `NormShockCountGt3` differs from `NormShock == 1 and raw_count > 3`; see [diagnostic rows](outputs/indicator_diagnostics.csv). Original data remain unchanged. Use raw counts or normalized values when an independently reproducible measure is needed.
+A recovered surge routine is available for comparison, but it does not exactly reproduce this frozen snapshot's indicators; see [surge reconstruction](docs/surge_reconstruction.md). Separately, in 36 cells, the field ending `NormShockCountGt3` differs from `NormShock == 1 and raw_count > 3`; see [diagnostic rows](outputs/indicator_diagnostics.csv). Original data remain unchanged. Use raw counts or normalized values when an independently reproducible measure is needed.
 
 ## Run the checks
 
@@ -37,6 +38,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 python scripts/build_overview.py --validate-only
 python scripts/verify_evaluation.py --check
+python scripts/reproduce_surges.py --check
 python scripts/test_validation.py
 python scripts/build_manifest.py --check
 ```
@@ -55,7 +57,7 @@ The export preserves counts, pools violence, excludes auxiliary labels, and refu
 
 The package contains aggregate country-month measures and numeric validation reports. Full news text, individual predictions, credentials, private databases, and third-party benchmark data are excluded. It does not yet include a verified version of the historical production pipeline, frozen model weights, or a national 71-country update.
 
-**An explicit data license, a code license, and an archival DOI have not yet been recorded.** Public access is not a substitute for reuse permission. These items must be resolved before representing this package as a completed journal deposit. They should be completed during submission preparation; a paper's publication is not a prerequisite for archiving data.
+**An explicit aggregate-data license, a license for the original package code, and an archival DOI have not yet been recorded.** The recovered surge definitions alone retain their [existing upstream MIT license](licenses/MLP-data-intro-MIT.txt). Public access is not a substitute for reuse permission. The remaining licenses and DOI must be resolved before representing this package as a completed journal deposit. They should be completed during submission preparation; a paper's publication is not a prerequisite for archiving data.
 
 Until a formal dataset citation is available, identify the repository, exact Git commit, snapshot ID `mleed-country-month-2012-2025`, and data SHA-256:
 

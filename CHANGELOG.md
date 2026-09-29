@@ -2,6 +2,9 @@
 
 ## Submission preparation — 2026-09-29
 
+- Added the upstream binary gate's separate 2×2 aggregate matrix, with exact source hash and verified 421/431 correct classifications.
+- Recovered the surge definitions with their existing upstream MIT notice and supplied a standalone comparison script. Two full-window historical inputs reproduce their own indicators on the shared cells, but neither exactly matches the frozen release.
+
 - Preserved the national 2012–2025 CSV exactly: 69 countries, 11,592 rows, 88 columns.
 - Added an 88-field schema, country/year coverage, snapshot metadata, a public-file manifest, and checksums.
 - Strengthened structural checks and added tested 16-category long-format export code.
