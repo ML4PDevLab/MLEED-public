@@ -17,5 +17,13 @@
   "collection_completeness_certified": false,
   "historical_extraction_and_model_version_linkage_verified": false,
   "coverage_note": "69 countries are present in this deposited file. A live roster or dashboard does not certify a 71-country or 2026 data release.",
-  "availability_note": "Aggregate data and supporting numeric reports only; no article text, credentials, or database exports."
+  "availability_note": "Aggregate data and supporting numeric reports only; no article text, credentials, or database exports.",
+  "upstream_code_licenses": [
+    {
+      "path": "scripts/recovered_surge.py",
+      "license": "MIT",
+      "notice": "licenses/MLP-data-intro-MIT.txt",
+      "scope": "Copied upstream definitions only; not a license for other original package code or aggregate data."
+    }
+  ]
 }

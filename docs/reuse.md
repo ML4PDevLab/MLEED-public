@@ -42,7 +42,7 @@ A zero label count means no such labels occur in the included records for that m
 
 ## Surge indicators
 
-The indicators are retained from the historical export. Their production algorithm and fitted state have not been linked to this snapshot. `NormShockCountGt3` must not be interpreted only from its suffix: 36 cells fail the literal comparison with `NormShock` and raw count greater than three. [The diagnostic file](../outputs/indicator_diagnostics.csv) identifies each affected country, month, and label.
+The indicators are retained from the historical export. A recovered routine reproduces two later source snapshots on their own input windows, but their linkage to the exact frozen indicators remains unresolved; see [surge reconstruction](surge_reconstruction.md). `NormShockCountGt3` must not be interpreted only from its suffix: 36 cells fail the literal comparison with `NormShock` and raw count greater than three. [The diagnostic file](../outputs/indicator_diagnostics.csv) identifies each affected country, month, and label.
 
 This discrepancy does not change the independently checked count-to-denominator identities. Analysts can build a new surge measure from count or normalized series, but should give it a new name and report its baseline, window, threshold, minimum count, and treatment of early months. Do not silently overwrite stored fields or claim to reproduce their historical method.
 
@@ -52,4 +52,4 @@ This discrepancy does not change the independently checked count-to-denominator 
 
 `verify_evaluation.py` recalculates aggregate classifier metrics and human-audit fractions. It does not retrain a model or rerun news collection. [Validation documentation](../validation/README.md) explains what the evaluation samples support.
 
-These scripts run without database credentials. Collection, translation, inference, geographic extraction, and historical surge fitting are not reproduced here. National and subnational dashboards are separate products and should not be joined as though they have identical coverage or denominators.
+These scripts run without database credentials. Collection, translation, inference, and geographic extraction are not reproduced here. The isolated surge comparator reproduces specified candidate runs while preserving the frozen data. National and subnational dashboards are separate products and should not be joined as though they have identical coverage or denominators.

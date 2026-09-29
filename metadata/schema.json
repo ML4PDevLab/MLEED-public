@@ -440,7 +440,7 @@
     {
       "name": "sudden-onset environmental disasterNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "sudden-onset environmental disaster",
       "substantive": true,
@@ -453,7 +453,7 @@
     {
       "name": "environmental cooperationNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental cooperation",
       "substantive": true,
@@ -466,7 +466,7 @@
     {
       "name": "environmental government initiativesNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental government initiatives",
       "substantive": true,
@@ -479,7 +479,7 @@
     {
       "name": "environmental securityNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental security",
       "substantive": true,
@@ -492,7 +492,7 @@
     {
       "name": "environmental -999NormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental -999",
       "substantive": false,
@@ -505,7 +505,7 @@
     {
       "name": "environmental arrestNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental arrest",
       "substantive": true,
@@ -518,7 +518,7 @@
     {
       "name": "human-induced disasterNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "human-induced disaster",
       "substantive": true,
@@ -531,7 +531,7 @@
     {
       "name": "displacementNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "displacement",
       "substantive": true,
@@ -544,7 +544,7 @@
     {
       "name": "-999NormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "-999",
       "substantive": false,
@@ -557,7 +557,7 @@
     {
       "name": "environmental legal actionNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental legal action",
       "substantive": true,
@@ -570,7 +570,7 @@
     {
       "name": "environmental opinionNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental opinion",
       "substantive": false,
@@ -583,7 +583,7 @@
     {
       "name": "slow-onset environmental disasterNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "slow-onset environmental disaster",
       "substantive": true,
@@ -596,7 +596,7 @@
     {
       "name": "environmental corruptionNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental corruption",
       "substantive": true,
@@ -609,7 +609,7 @@
     {
       "name": "environmental crimeNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental crime",
       "substantive": true,
@@ -622,7 +622,7 @@
     {
       "name": "environmental legal changeNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental legal change",
       "substantive": true,
@@ -635,7 +635,7 @@
     {
       "name": "environmental activismNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental activism",
       "substantive": true,
@@ -648,7 +648,7 @@
     {
       "name": "environmental corporate initiativesNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental corporate initiatives",
       "substantive": true,
@@ -661,7 +661,7 @@
     {
       "name": "lethal environmental violenceNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "lethal environmental violence",
       "substantive": true,
@@ -674,7 +674,7 @@
     {
       "name": "environmental protestsNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "environmental protests",
       "substantive": true,
@@ -687,7 +687,7 @@
     {
       "name": "nonlethal environmental violenceNormShock",
       "type": "integer",
-      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "description": "Stored surge indicator. Recovered code is available for comparison, but exact lineage of this frozen value remains unresolved.",
       "required": true,
       "base_label": "nonlethal environmental violence",
       "substantive": true,

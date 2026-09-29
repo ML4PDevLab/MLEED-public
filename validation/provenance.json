@@ -61,5 +61,34 @@
     "source_document": "MLEED Validation, Idalee Vargas, 2026-06-18",
     "source_basename": "mleed_validation (2).html",
     "source_redistributed": false
+  },
+  "binary_gate": {
+    "source_basename": "test_results_BINARY_THEN_EVENTS.csv",
+    "source_sha256": "caa7667e19fc8a718f5a9fc6d9114457a0b1ea569f41ae67c993b43ef33e2e8a",
+    "source_rows": 431,
+    "reference_label_column": "final_coding",
+    "binary_prediction_column": "binary_env",
+    "reference_negative_rule": "final_coding equals the exact string '-999'",
+    "reference_positive_rule": "final_coding is any other reference category, including 'environmental opinion' and 'environmental -999'",
+    "prediction_negative_rule": "binary_env == 0",
+    "prediction_positive_rule": "binary_env == 1",
+    "matrix_rows": "reference: nonenvironmental,environmental",
+    "matrix_columns": "binary prediction: nonenvironmental,environmental",
+    "matrix": [
+      [
+        164,
+        10
+      ],
+      [
+        0,
+        257
+      ]
+    ],
+    "binary_values": [
+      "0",
+      "1"
+    ],
+    "source_redistributed": false,
+    "note": "Derived from upstream binary_env predictions, not the final_primary multiclass output. Original source also contains publisher text and is excluded."
   }
 }

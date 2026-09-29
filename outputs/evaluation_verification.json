@@ -1,4 +1,16 @@
 {
+  "binary_gate": {
+    "cases": 431,
+    "true_negative": 164,
+    "false_positive": 10,
+    "false_negative": 0,
+    "true_positive": 257,
+    "correct": 421,
+    "accuracy": 0.9767981438515081,
+    "environmental_precision": 0.9625468164794008,
+    "environmental_recall": 1.0,
+    "scope": "Upstream binary_env gate; not inferred from the final multiclass predictions."
+  },
   "primary": {
     "cases": 431,
     "correct": 405,
