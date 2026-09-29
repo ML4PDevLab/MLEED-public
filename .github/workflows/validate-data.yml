@@ -25,3 +25,12 @@ jobs:
 
       - name: Validate country-month data
         run: python scripts/build_overview.py --validate-only
+
+      - name: Verify classifier evaluation aggregates
+        run: python scripts/verify_evaluation.py --check
+
+      - name: Check corruption detection and reusable export
+        run: python scripts/test_validation.py
+
+      - name: Verify deposited file checksums
+        run: python scripts/build_manifest.py --check

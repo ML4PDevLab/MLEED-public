@@ -1,0 +1,65 @@
+{
+  "description": "Aggregate numeric reports recovered from the project evaluation archive; no individual news documents or predictions are included.",
+  "classification_files": [
+    {
+      "path": "classification/classification_report_primary_BINARY_THEN_EVENTS.csv",
+      "sha256": "c93aa3a84225fecb7f3f3fef3a7977f523622e8a662d157381c5f6a3f0780483",
+      "source_basename": "classification_report_primary_BINARY_THEN_EVENTS.csv",
+      "copied_without_modification": true
+    },
+    {
+      "path": "classification/confusion_matrix_raw_primary_BINARY_THEN_EVENTS.csv",
+      "sha256": "e351d3468f50128dc9a0a8edc2f0a2630b935c400d42ef323e87a81322c651ce",
+      "source_basename": "confusion_matrix_raw_primary_BINARY_THEN_EVENTS.csv",
+      "copied_without_modification": true
+    },
+    {
+      "path": "classification/confusion_matrix_normalized_primary_BINARY_THEN_EVENTS.csv",
+      "sha256": "5c5e29330e8e3d57307011bae7192a1fe5cae0b7f4caf422e48d965166699a54",
+      "source_basename": "confusion_matrix_normalized_primary_BINARY_THEN_EVENTS.csv",
+      "copied_without_modification": true
+    },
+    {
+      "path": "classification/classification_report_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "sha256": "1cc4b9e13d59b1b80d5908dce9fff00306d4062a8dcd447b1fb98a83ad2c1b9c",
+      "source_basename": "classification_report_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "copied_without_modification": true
+    },
+    {
+      "path": "classification/confusion_matrix_raw_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "sha256": "3dfe01de51c733a036d7d35dbc2b55471ee0a270b82712e9b65a6098c00152c6",
+      "source_basename": "confusion_matrix_raw_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "copied_without_modification": true
+    },
+    {
+      "path": "classification/confusion_matrix_normalized_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "sha256": "fdbadb172bd33b265e8fb812bde2670cd967c04ec8964b1f59382213d76700ab",
+      "source_basename": "confusion_matrix_normalized_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "copied_without_modification": true
+    }
+  ],
+  "test_cases": 431,
+  "nonenvironmental_cases": 174,
+  "environmental_cases_including_auxiliary_labels": 257,
+  "split_and_model_linkage_verified": false,
+  "primary_or_secondary_scoring": "Permissive: a prediction is credited if either primary or secondary category matches the reference label.",
+  "human_audit": {
+    "sha256": "d49a81c2d5c50ded649bbdba3e780c20e787d5ed696ea4e705ba202904bf7987",
+    "correct_articles": 1232,
+    "total_articles": 1481,
+    "selected_surges": 100,
+    "valid_surges": 98,
+    "event_error_flags": 205,
+    "geographic_error_flags": 30,
+    "unexplained_difference_if_error_types_disjoint": 14,
+    "sampling": "purposive across geography, media environments, article volumes; not random",
+    "borderline_rule": "counted as correct",
+    "excluded_categories": [
+      "sudden-onset environmental disaster",
+      "slow-onset environmental disaster"
+    ],
+    "source_document": "MLEED Validation, Idalee Vargas, 2026-06-18",
+    "source_basename": "mleed_validation (2).html",
+    "source_redistributed": false
+  }
+}

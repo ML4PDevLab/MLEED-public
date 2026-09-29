@@ -1,0 +1,1040 @@
+{
+  "schema_version": 1,
+  "data_file": "data/mleed_country_month_2012_2025.csv",
+  "encoding": "UTF-8",
+  "delimiter": ",",
+  "primary_key": [
+    "country",
+    "date"
+  ],
+  "missing_values": [],
+  "fields": [
+    {
+      "name": "country",
+      "type": "string",
+      "description": "Country name as stored in this snapshot; preserve names when joining.",
+      "required": true
+    },
+    {
+      "name": "date",
+      "type": "date",
+      "description": "First day of the observation month, YYYY-MM-DD.",
+      "required": true
+    },
+    {
+      "name": "year",
+      "type": "integer",
+      "description": "Calendar year matching date.",
+      "required": true
+    },
+    {
+      "name": "month",
+      "type": "integer",
+      "description": "Calendar month, 1 through 12, matching date.",
+      "required": true
+    },
+    {
+      "name": "sudden-onset environmental disaster",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "sudden-onset environmental disaster",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental cooperation",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental cooperation",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental government initiatives",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental government initiatives",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental security",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental security",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental -999",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental -999",
+      "substantive": false,
+      "minimum": 0
+    },
+    {
+      "name": "environmental arrest",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental arrest",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "human-induced disaster",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "human-induced disaster",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "displacement",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "displacement",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "-999",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "-999",
+      "substantive": false,
+      "minimum": 0
+    },
+    {
+      "name": "environmental legal action",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental legal action",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental opinion",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental opinion",
+      "substantive": false,
+      "minimum": 0
+    },
+    {
+      "name": "slow-onset environmental disaster",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "slow-onset environmental disaster",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental corruption",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental corruption",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental crime",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental crime",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental legal change",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental legal change",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental activism",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental activism",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental corporate initiatives",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental corporate initiatives",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "lethal environmental violence",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "lethal environmental violence",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "environmental protests",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "environmental protests",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "nonlethal environmental violence",
+      "type": "integer",
+      "description": "Assigned article-label count; not a count of unique physical events.",
+      "required": true,
+      "base_label": "nonlethal environmental violence",
+      "substantive": true,
+      "minimum": 0
+    },
+    {
+      "name": "total_articles",
+      "type": "integer",
+      "description": "Environmental documents included in the country-month numerator pool.",
+      "required": true
+    },
+    {
+      "name": "total_from_source",
+      "type": "integer",
+      "description": "Source-aggregation article total; numerically identical to total_articles in this snapshot.",
+      "required": true
+    },
+    {
+      "name": "total_label_events",
+      "type": "integer",
+      "description": "Sum of all 20 raw label counts, including auxiliary fields; up to two labels per included article.",
+      "required": true
+    },
+    {
+      "name": "total_local_docs",
+      "type": "integer",
+      "description": "All included locally relevant documents in the country-month; denominator for every Norm field.",
+      "required": true
+    },
+    {
+      "name": "sudden-onset environmental disasterNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "sudden-onset environmental disaster",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "sudden-onset environmental disaster / total_local_docs"
+    },
+    {
+      "name": "environmental cooperationNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental cooperation",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental cooperation / total_local_docs"
+    },
+    {
+      "name": "environmental government initiativesNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental government initiatives",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental government initiatives / total_local_docs"
+    },
+    {
+      "name": "environmental securityNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental security",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental security / total_local_docs"
+    },
+    {
+      "name": "environmental -999Norm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental -999",
+      "substantive": false,
+      "minimum": 0,
+      "formula": "environmental -999 / total_local_docs"
+    },
+    {
+      "name": "environmental arrestNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental arrest",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental arrest / total_local_docs"
+    },
+    {
+      "name": "human-induced disasterNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "human-induced disaster",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "human-induced disaster / total_local_docs"
+    },
+    {
+      "name": "displacementNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "displacement",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "displacement / total_local_docs"
+    },
+    {
+      "name": "-999Norm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "-999",
+      "substantive": false,
+      "minimum": 0,
+      "formula": "-999 / total_local_docs"
+    },
+    {
+      "name": "environmental legal actionNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental legal action",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental legal action / total_local_docs"
+    },
+    {
+      "name": "environmental opinionNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental opinion",
+      "substantive": false,
+      "minimum": 0,
+      "formula": "environmental opinion / total_local_docs"
+    },
+    {
+      "name": "slow-onset environmental disasterNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "slow-onset environmental disaster",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "slow-onset environmental disaster / total_local_docs"
+    },
+    {
+      "name": "environmental corruptionNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental corruption",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental corruption / total_local_docs"
+    },
+    {
+      "name": "environmental crimeNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental crime",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental crime / total_local_docs"
+    },
+    {
+      "name": "environmental legal changeNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental legal change",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental legal change / total_local_docs"
+    },
+    {
+      "name": "environmental activismNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental activism",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental activism / total_local_docs"
+    },
+    {
+      "name": "environmental corporate initiativesNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental corporate initiatives",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental corporate initiatives / total_local_docs"
+    },
+    {
+      "name": "lethal environmental violenceNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "lethal environmental violence",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "lethal environmental violence / total_local_docs"
+    },
+    {
+      "name": "environmental protestsNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "environmental protests",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "environmental protests / total_local_docs"
+    },
+    {
+      "name": "nonlethal environmental violenceNorm",
+      "type": "number",
+      "description": "Raw label count divided by total_local_docs; multiply by 10000 for labels per 10000 locally relevant documents.",
+      "required": true,
+      "base_label": "nonlethal environmental violence",
+      "substantive": true,
+      "minimum": 0,
+      "formula": "nonlethal environmental violence / total_local_docs"
+    },
+    {
+      "name": "sudden-onset environmental disasterNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "sudden-onset environmental disaster",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental cooperationNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental cooperation",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental government initiativesNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental government initiatives",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental securityNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental security",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental -999NormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental -999",
+      "substantive": false,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental arrestNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental arrest",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "human-induced disasterNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "human-induced disaster",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "displacementNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "displacement",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "-999NormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "-999",
+      "substantive": false,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental legal actionNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental legal action",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental opinionNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental opinion",
+      "substantive": false,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "slow-onset environmental disasterNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "slow-onset environmental disaster",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental corruptionNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental corruption",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental crimeNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental crime",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental legal changeNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental legal change",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental activismNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental activism",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental corporate initiativesNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental corporate initiatives",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "lethal environmental violenceNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "lethal environmental violence",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental protestsNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "environmental protests",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "nonlethal environmental violenceNormShock",
+      "type": "integer",
+      "description": "Stored surge indicator. The historical production algorithm is not reproduced by this package.",
+      "required": true,
+      "base_label": "nonlethal environmental violence",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "sudden-onset environmental disasterNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "sudden-onset environmental disaster",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental cooperationNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental cooperation",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental government initiativesNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental government initiatives",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental securityNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental security",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental -999NormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental -999",
+      "substantive": false,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental arrestNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental arrest",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "human-induced disasterNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "human-induced disaster",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "displacementNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "displacement",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "-999NormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "-999",
+      "substantive": false,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental legal actionNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental legal action",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental opinionNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental opinion",
+      "substantive": false,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "slow-onset environmental disasterNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "slow-onset environmental disaster",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental corruptionNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental corruption",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental crimeNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental crime",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental legal changeNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental legal change",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental activismNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental activism",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental corporate initiativesNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental corporate initiatives",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "lethal environmental violenceNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "lethal environmental violence",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "environmental protestsNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "environmental protests",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "nonlethal environmental violenceNormShockCountGt3",
+      "type": "integer",
+      "description": "Stored count-screened surge indicator. Do not infer the rule from the suffix: 36 cells differ from NormShock == 1 and raw_count > 3.",
+      "required": true,
+      "base_label": "nonlethal environmental violence",
+      "substantive": true,
+      "minimum": 0,
+      "enum": [
+        0,
+        1
+      ]
+    }
+  ],
+  "country_names": [
+    "Albania",
+    "Algeria",
+    "Angola",
+    "Armenia",
+    "Azerbaijan",
+    "Bangladesh",
+    "Belarus",
+    "Benin",
+    "Bolivia",
+    "Brazil",
+    "Burkina Faso",
+    "Cambodia",
+    "Cameroon",
+    "Colombia",
+    "Costa Rica",
+    "DR Congo",
+    "Dominican Republic",
+    "Ecuador",
+    "Egypt",
+    "El Salvador",
+    "Ethiopia",
+    "Georgia",
+    "Ghana",
+    "Guatemala",
+    "Honduras",
+    "Hungary",
+    "India",
+    "Indonesia",
+    "Jamaica",
+    "Kazakhstan",
+    "Kenya",
+    "Kosovo",
+    "Kyrgyzstan",
+    "Liberia",
+    "Macedonia",
+    "Malawi",
+    "Malaysia",
+    "Mali",
+    "Mauritania",
+    "Mexico",
+    "Moldova",
+    "Morocco",
+    "Mozambique",
+    "Namibia",
+    "Nepal",
+    "Nicaragua",
+    "Niger",
+    "Nigeria",
+    "Pakistan",
+    "Panama",
+    "Paraguay",
+    "Peru",
+    "Philippines",
+    "Rwanda",
+    "Senegal",
+    "Serbia",
+    "Solomon Islands",
+    "South Africa",
+    "South Sudan",
+    "Sri Lanka",
+    "Tanzania",
+    "Timor Leste",
+    "Tunisia",
+    "Turkey",
+    "Uganda",
+    "Ukraine",
+    "Uzbekistan",
+    "Zambia",
+    "Zimbabwe"
+  ],
+  "start_month": "2012-01",
+  "end_month": "2025-12",
+  "months_per_country": 168,
+  "notes": [
+    "Schema describes this immutable data snapshot, not live pipeline coverage.",
+    "Data contain 17 substantive label columns; pool lethal and nonlethal violence to form the 16-category taxonomy.",
+    "Cross-country article totals count document contributions, not unique corpus documents: international reports can contribute to multiple countries."
+  ]
+}
