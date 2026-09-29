@@ -1,0 +1,21 @@
+{
+  "metadata_version": 1,
+  "snapshot_id": "mleed-country-month-2012-2025",
+  "status": "prepublication",
+  "data_file": "data/mleed_country_month_2012_2025.csv",
+  "data_sha256": "caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7",
+  "rows": 11592,
+  "columns": 88,
+  "countries": 69,
+  "start_month": "2012-01",
+  "end_month": "2025-12",
+  "public_repository": "https://github.com/ML4PDevLab/MLEED-public",
+  "source_repository_commit": "9f335a2",
+  "data_license": null,
+  "code_license": null,
+  "archival_doi": null,
+  "collection_completeness_certified": false,
+  "historical_extraction_and_model_version_linkage_verified": false,
+  "coverage_note": "69 countries are present in this deposited file. A live roster or dashboard does not certify a 71-country or 2026 data release.",
+  "availability_note": "Aggregate data and supporting numeric reports only; no article text, credentials, or database exports."
+}

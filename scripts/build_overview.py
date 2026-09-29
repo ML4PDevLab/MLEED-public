@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 from matplotlib.ticker import PercentFormatter
 
@@ -22,6 +23,7 @@ START_DATE = pd.Timestamp("2012-01-01")
 END_DATE = pd.Timestamp("2025-12-01")
 EXPECTED_COUNTRIES = 69
 EXPECTED_MONTHS = 168
+SCHEMA_FILE = REPO_ROOT / "metadata" / "schema.json"
 
 EVENT_COLUMNS = [
     "sudden-onset environmental disaster",
@@ -81,6 +83,11 @@ def sha256(path: Path) -> str:
 def load_and_validate(path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
     data = pd.read_csv(path)
 
+    schema = json.loads(SCHEMA_FILE.read_text(encoding="utf-8"))
+    expected_columns = [field["name"] for field in schema["fields"]]
+    if list(data.columns) != expected_columns:
+        raise ValueError("CSV columns or column order differ from metadata/schema.json")
+
     required = {
         "country",
         "date",
@@ -97,6 +104,16 @@ def load_and_validate(path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
     if data.isna().any().any():
         missing_cells = int(data.isna().sum().sum())
         raise ValueError(f"Dataset contains {missing_cells:,} missing cells")
+
+    expected_countries = set(schema["country_names"])
+    if set(data["country"]) != expected_countries:
+        raise ValueError("Country names differ from the deposited snapshot schema")
+
+    numeric = data.drop(columns=["country", "date"])
+    if not all(pd.api.types.is_numeric_dtype(dtype) for dtype in numeric.dtypes):
+        raise ValueError("Non-numeric values detected in numeric fields")
+    if not np.isfinite(numeric.to_numpy()).all():
+        raise ValueError("Non-finite values detected in numeric fields")
 
     data["date"] = pd.to_datetime(data["date"], errors="raise")
     if data.duplicated(["country", "date"]).any():
@@ -127,6 +144,8 @@ def load_and_validate(path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
     count_columns = EVENT_COLUMNS + AUXILIARY_COLUMNS + TOTAL_COLUMNS
     if (data[count_columns] < 0).any().any():
         raise ValueError("Negative values detected in count columns")
+    if (data[count_columns] % 1 != 0).any().any():
+        raise ValueError("Non-integer values detected in count columns")
 
     if not data["total_articles"].equals(data["total_from_source"]):
         raise ValueError("total_articles and total_from_source differ")
@@ -139,6 +158,11 @@ def load_and_validate(path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
     denominator = data["total_local_docs"]
     if (denominator <= 0).any():
         raise ValueError("total_local_docs must be positive in every row")
+    if (data["total_articles"] > denominator).any():
+        raise ValueError("Environmental article count exceeds local-document denominator")
+    if ((data["total_label_events"] < data["total_articles"]) |
+            (data["total_label_events"] > 2 * data["total_articles"])).any():
+        raise ValueError("Label totals fall outside one to two labels per included article")
     for column in all_label_columns:
         normalized = f"{column}Norm"
         if normalized not in data.columns:
@@ -167,16 +191,55 @@ def load_and_validate(path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
         "missing_cells": 0,
         "minimum_total_local_docs": int(denominator.min()),
         "maximum_total_local_docs": int(denominator.max()),
+        "totals": {column: int(data[column].sum()) for column in TOTAL_COLUMNS},
+        "totals_note": "Summed country-month contributions, not unique global documents; international reports may contribute to multiple countries.",
         "checks": {
+            "exact_schema_and_country_names": "pass",
+            "finite_numeric_fields": "pass",
             "balanced_panel": "pass",
             "date_year_month_alignment": "pass",
-            "nonnegative_counts": "pass",
+            "nonnegative_integer_counts": "pass",
+            "article_and_label_bounds": "pass",
             "label_total_reconciliation": "pass",
             "normalization_reconciliation": "pass",
             "binary_surge_indicators": "pass",
         },
+        "validation_scope": "Structural and arithmetic checks only; these do not establish source-collection completeness or classifier accuracy.",
     }
     return data, summary
+
+
+def build_coverage(data: pd.DataFrame, group: str) -> pd.DataFrame:
+    """Summarize the observed release; zero labels are not absent source coverage."""
+    return data.groupby(group, sort=True).agg(
+        rows=("date", "size"),
+        first_month=("date", "min"),
+        last_month=("date", "max"),
+        environmental_articles=("total_articles", "sum"),
+        assigned_labels=("total_label_events", "sum"),
+        locally_relevant_documents=("total_local_docs", "sum"),
+        minimum_monthly_local_documents=("total_local_docs", "min"),
+        months_with_zero_environmental_articles=("total_articles", lambda x: int((x == 0).sum())),
+    ).reset_index()
+
+
+def build_indicator_diagnostics(data: pd.DataFrame) -> pd.DataFrame:
+    """Expose departures from the literal suffix interpretation without changing data."""
+    output = []
+    for label in EVENT_COLUMNS + AUXILIARY_COLUMNS:
+        expected = (data[f"{label}NormShock"] == 1) & (data[label] > 3)
+        mismatch = data[f"{label}NormShockCountGt3"] != expected.astype(int)
+        for _, row in data.loc[mismatch].iterrows():
+            output.append({
+                "country": row["country"], "date": row["date"].strftime("%Y-%m-%d"),
+                "label": label, "raw_count": int(row[label]),
+                "stored_shock": int(row[f"{label}NormShock"]),
+                "stored_screened_shock": int(row[f"{label}NormShockCountGt3"]),
+                "shock_and_raw_count_gt3": int(expected.loc[row.name]),
+            })
+    columns = ["country", "date", "label", "raw_count", "stored_shock",
+               "stored_screened_shock", "shock_and_raw_count_gt3"]
+    return pd.DataFrame(output, columns=columns).sort_values(["country", "date", "label"])
 
 
 def build_event_distribution(data: pd.DataFrame) -> pd.DataFrame:
@@ -242,6 +305,14 @@ def plot_event_distribution(distribution: pd.DataFrame, path: Path) -> None:
 def main() -> None:
     args = parse_args()
     data, quality_summary = load_and_validate(args.data)
+    diagnostics = build_indicator_diagnostics(data)
+    quality_summary["indicator_diagnostic"] = {
+        "comparison": "NormShockCountGt3 versus (NormShock == 1 and raw_count > 3)",
+        "mismatching_cells": int(len(diagnostics)),
+        "affected_label_series": int(diagnostics["label"].nunique()),
+        "status": "unresolved" if len(diagnostics) else "consistent_with_comparison",
+        "interpretation": "A diagnostic comparison, not a verified reconstruction of the production algorithm. Stored indicators are unchanged.",
+    }
     print(json.dumps(quality_summary, indent=2))
 
     if args.validate_only:
@@ -252,6 +323,9 @@ def main() -> None:
 
     distribution = build_event_distribution(data)
     distribution.to_csv(args.outputs / "event_distribution.csv", index=False)
+    build_coverage(data, "country").to_csv(args.outputs / "country_coverage.csv", index=False, date_format="%Y-%m-%d")
+    build_coverage(data, "year").to_csv(args.outputs / "year_coverage.csv", index=False, date_format="%Y-%m-%d")
+    diagnostics.to_csv(args.outputs / "indicator_diagnostics.csv", index=False)
     with (args.outputs / "data_quality_summary.json").open("w", encoding="utf-8") as handle:
         json.dump(quality_summary, handle, indent=2)
         handle.write("\n")

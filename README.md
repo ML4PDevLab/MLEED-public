@@ -1,74 +1,74 @@
 # Machine Learning for Environmental Event Detection (MLEED)
 
-MLEED is a country-month dataset of environmental events and human responses to environmental stress. It is built from multilingual news coverage and spans 69 countries from January 2012 through December 2025.
+MLEED measures news reporting about environmental hazards and human responses to environmental stress. This repository contains a national monthly snapshot for **69 countries, January 2012–December 2025**, documentation, aggregate evaluation reports, and code for checking and reusing these files.
 
-This repository is the public, pre-publication home for the data and supporting materials associated with the MLEED paper. The manuscript and paper-specific results are intentionally not included at this stage.
+The CSV has 11,592 country-month observations and 88 columns. Summing its country-month counts gives 1,643,983 environmental-document contributions, 1,839,196 assigned labels, and 58,223,860 locally relevant document contributions in the normalization denominator. An international report may contribute to more than one country, so cross-country sums are not counts of unique corpus documents. Documents can also receive more than one label. These are measures of reporting, not counts of distinct physical events or people affected.
 
-## Start here
+This is a **pre-publication snapshot**, not a certified release of the current live collection. A broader collection roster or newer dashboard does not establish complete coverage in this file. No 2026 national records are included here.
 
-| Resource | What it contains |
+## Files and documentation
+
+| Resource | Contents |
 | --- | --- |
-| [`data/mleed_country_month_2012_2025.csv`](data/mleed_country_month_2012_2025.csv) | Complete country-month panel: 11,592 rows, 69 countries, 168 months, and 88 columns |
-| [`docs/data_dictionary.md`](docs/data_dictionary.md) | Unit of observation, event taxonomy, column families, and interpretation notes |
-| [`scripts/build_overview.py`](scripts/build_overview.py) | Portable validation and descriptive-output script |
-| [`outputs/data_quality_summary.json`](outputs/data_quality_summary.json) | Machine-readable structural checks and source-file checksum |
-| [`outputs/event_distribution.csv`](outputs/event_distribution.csv) | Aggregate distribution of the 16 substantive MLEED event categories |
-| [`figures/event_distribution.png`](figures/event_distribution.png) | Descriptive overview generated from the public data |
-| [`docs/repository_scope.md`](docs/repository_scope.md) | What is public now, what is withheld, and the publication-release checklist |
+| [National data](data/mleed_country_month_2012_2025.csv) | Unchanged CSV: 69 countries × 168 months |
+| [Data dictionary](docs/data_dictionary.md) | Observation unit, labels, derived fields, and interpretation |
+| [Machine-readable schema](metadata/schema.json) | All 88 fields, types, definitions, and exact country names |
+| [Country coverage](outputs/country_coverage.csv) and [year coverage](outputs/year_coverage.csv) | Observed reporting volume in the deposited file |
+| [Validation materials](validation/README.md) | Classifier matrices/reports and a human-review summary, with limitations |
+| [Reuse guide](docs/reuse.md) | Rates, category pooling, joins, zeros, and examples |
+| [Snapshot metadata](metadata/snapshot.json), [manifest](metadata/release_manifest.json), and [checksums](SHA256SUMS) | Explicit inventory and file identity |
+| [Release scope](docs/repository_scope.md) and [changelog](CHANGELOG.md) | Available materials and remaining publication requirements |
 
-## What MLEED measures
+## What the labels mean
 
-MLEED organizes environmental reporting into 16 substantive categories covering:
+The 16 substantive categories cover environmental hazards; displacement, environmental crime, and violence; civic and corporate responses; and government actions. The stored data separate lethal and nonlethal violence, giving 17 substantive count columns. Pool those two columns for the 16-category taxonomy. Three additional classifier fields are retained for accounting and excluded from substantive summaries.
 
-- environmental hazards: sudden-onset, slow-onset, and human-induced disasters;
-- individual responses: displacement, environmental crime, and environmental violence;
-- social responses: environmental activism, protests, and corporate initiatives; and
-- governmental responses: arrests, cooperation, corruption, initiatives, legal action, legal change, and environmental security.
+Each label has a raw count, a normalized value (`Norm`), and two stored surge indicators. A normalized value is a label count divided by all locally relevant documents in that country-month. Multiply it by 10,000 for **labels per 10,000 documents**.
 
-The distributed file contains raw country-month article-label counts, normalized values, and precomputed surge indicators. Normalized values are stored as proportions of all locally relevant documents in that country-month. Multiply a `*Norm` value by 10,000 to express it as events per 10,000 articles. See the [data dictionary](docs/data_dictionary.md) before analysis.
+The historical surge algorithm is not reproduced here. In 36 cells, the field ending `NormShockCountGt3` differs from `NormShock == 1 and raw_count > 3`; see [diagnostic rows](outputs/indicator_diagnostics.csv). Original data remain unchanged. Use raw counts or normalized values when an independently reproducible measure is needed.
 
-## Quick start
+## Run the checks
 
-Create an environment with Python 3.11, install the tested dependencies, and rebuild the public checks and overview:
+Tested with Python 3.11 and the pinned dependencies:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
-python scripts/build_overview.py
+python scripts/build_overview.py --validate-only
+python scripts/verify_evaluation.py --check
+python scripts/test_validation.py
+python scripts/build_manifest.py --check
 ```
 
-Minimal Python example:
+To regenerate structural summaries, coverage tables, diagnostics, and the descriptive figure, run `python scripts/build_overview.py`. Rebuild evaluation summaries with `python scripts/verify_evaluation.py`. After reviewing intended changes, refresh the inventory with `python scripts/build_manifest.py`. Structural checks do not certify that every source was collected or every label is correct.
 
-```python
-import pandas as pd
+To create a tidy file with the 16 substantive categories and transparent reporting rates:
 
-data = pd.read_csv(
-    "data/mleed_country_month_2012_2025.csv",
-    parse_dates=["date"],
-)
-
-data["sudden_disasters_per_10k"] = (
-    data["sudden-onset environmental disasterNorm"] * 10_000
-)
+```bash
+python scripts/export_long.py --output analysis/mleed_16_categories.csv
 ```
 
-## For editors and reviewers
+The export preserves counts, pools violence, excludes auxiliary labels, and refuses to overwrite existing files. See the [reuse guide](docs/reuse.md) for Python examples.
 
-The repository currently provides the aggregate public dataset, documentation, a checksum, and a reproducible descriptive check. It does **not** contain the manuscript, submission PDFs, draft tables, paper-result figures, licensed article text, or third-party datasets.
+## Access, rights, and citation
 
-The source news corpus cannot be redistributed in full because of publisher copyright and licensing restrictions. The public CSV contains aggregate country-month measures and no article text.
+The package contains aggregate country-month measures and numeric validation reports. Full news text, individual predictions, credentials, private databases, and third-party benchmark data are excluded. It does not yet include a verified version of the historical production pipeline, frozen model weights, or a national 71-country update.
 
-Before the archival publication release, the project team plans to add the final paper citation and DOI, an explicit code/data license, and any additional evaluation or reproduction artifacts that can be redistributed. Until a license is added, public availability should not be interpreted as a grant of reuse rights.
+**An explicit data license, a code license, and an archival DOI have not yet been recorded.** Public access is not a substitute for reuse permission. These items must be resolved before representing this package as a completed journal deposit. They should be completed during submission preparation; a paper's publication is not a prerequisite for archiving data.
 
-## Related resources
+Until a formal dataset citation is available, identify the repository, exact Git commit, snapshot ID `mleed-country-month-2012-2025`, and data SHA-256:
 
-- [Interactive MLEED dashboard](https://huggingface.co/spaces/zungru/mlp-mleed-dashboard)
-- [Interactive subnational environmental dashboard](https://huggingface.co/spaces/zungru/subnational-env-dashboard)
+```text
+caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7
+```
+
+## Related project resources
+
+- [National MLEED dashboard](https://huggingface.co/spaces/zungru/mlp-mleed-dashboard)
+- [Subnational environmental dashboard](https://huggingface.co/spaces/zungru/subnational-env-dashboard)
+- [Broader MLP pipeline documentation](https://github.com/ML4PDevLab/MLP-data-intro)
 - [Machine Learning for Peace project](https://web.sas.upenn.edu/mlp-devlab/)
-- [Broader MLP data pipeline and documentation](https://github.com/ML4PDevLab/MLP-data-intro)
-- [PDRI–DevLab at the University of Pennsylvania](https://pdri-devlab.upenn.edu/)
+- [PDRI–DevLab, University of Pennsylvania](https://pdri-devlab.upenn.edu/)
 
-## Citation and versioning
-
-This is a pre-publication snapshot. The definitive citation, archival DOI, license, and versioned release will be added after publication. For work begun before then, record the repository URL, commit hash, and the SHA-256 value in `outputs/data_quality_summary.json`.
+Dashboards are companion resources. Their files, geographic units, updates, and inclusion rules may differ from this national snapshot; cite the exact product used.

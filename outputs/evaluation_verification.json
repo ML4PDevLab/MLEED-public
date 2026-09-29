@@ -1,0 +1,54 @@
+{
+  "primary": {
+    "cases": 431,
+    "correct": 405,
+    "accuracy": 0.9396751740139211,
+    "label_count": 20,
+    "macro avg": {
+      "precision": 0.9164473578966612,
+      "recall": 0.9150603826250379,
+      "f1-score": 0.9090433509629664,
+      "support": 431.0
+    },
+    "weighted avg": {
+      "precision": 0.9470081227239324,
+      "recall": 0.9396751740139211,
+      "f1-score": 0.941208596409788,
+      "support": 431.0
+    },
+    "checks": "Raw matrices, row-normalized matrices, class metrics and averages reconcile."
+  },
+  "primary_or_secondary": {
+    "cases": 431,
+    "correct": 408,
+    "accuracy": 0.9466357308584686,
+    "label_count": 20,
+    "macro avg": {
+      "precision": 0.9262678070553457,
+      "recall": 0.9257247182893735,
+      "f1-score": 0.9193924499814123,
+      "support": 431.0
+    },
+    "weighted avg": {
+      "precision": 0.953817575043143,
+      "recall": 0.9466357308584686,
+      "f1-score": 0.9481802000995736,
+      "support": 431.0
+    },
+    "checks": "Raw matrices, row-normalized matrices, class metrics and averages reconcile."
+  },
+  "scope": "Arithmetic verification of archived aggregate evaluation reports. Does not verify training/test independence or model-version linkage to the public panel.",
+  "primary_or_secondary_note": "Permissive top-two scoring; not standard single-prediction classification accuracy.",
+  "human_audit": {
+    "correct_articles": 1232,
+    "reviewed_articles": 1481,
+    "selected_surges": 100,
+    "valid_surges": 98,
+    "event_error_flags": 205,
+    "geographic_error_flags": 30,
+    "article_correct_fraction": 0.8318703578663066,
+    "selected_surges_valid_fraction": 0.98,
+    "error_count_difference": 14,
+    "scope": "Descriptive purposive surge audit with borderline cases counted correct; does not estimate population-wide accuracy."
+  }
+}

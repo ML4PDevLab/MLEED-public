@@ -1,0 +1,173 @@
+{
+  "manifest_version": 1,
+  "snapshot_id": "mleed-country-month-2012-2025",
+  "package_status": "prepublication",
+  "scope": "Explicit public files only. The manifest and SHA256SUMS exclude themselves to avoid recursive hashes.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 107,
+      "sha256": "db2b48943c72f7b44d8e135dca50e1c3fbacc6e9a6f34c7a2f2dc7e04eb682d3"
+    },
+    {
+      "path": ".github/workflows/validate-data.yml",
+      "bytes": 866,
+      "sha256": "5c90a585e9024e9a490e1ae2080fd0639964607db8d7800861960615b8b06548"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 202,
+      "sha256": "aebb3bad17782a3b4121bb87d4ff1f15cb7f0df38c1f2e2ef33375f3c0c42b50"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1024,
+      "sha256": "eae0b96fbc84189e55017c5cadc0ee3e5beb58c7b704c43aaffbdbd536835e1b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5901,
+      "sha256": "51ee58f205ac4775385f065ea754947291211004e9d9d340151a4d8eed040fdd"
+    },
+    {
+      "path": "data/mleed_country_month_2012_2025.csv",
+      "bytes": 5007575,
+      "sha256": "caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7"
+    },
+    {
+      "path": "docs/data_dictionary.md",
+      "bytes": 7066,
+      "sha256": "ad743d72f12829ec27e00f3d4fafdb00035e70f2143494823694057af1455662"
+    },
+    {
+      "path": "docs/repository_scope.md",
+      "bytes": 3867,
+      "sha256": "d27426e95eebb168b5717aa971fd795284b966b27624a081c65bb6e7ba217f3c"
+    },
+    {
+      "path": "docs/reuse.md",
+      "bytes": 4717,
+      "sha256": "7a29a6a25d834584b7b6a64db4dc19e00f4255b732332786839d58f6f3cee367"
+    },
+    {
+      "path": "figures/event_distribution.png",
+      "bytes": 196445,
+      "sha256": "d415afe7ac72cee064b05bb7d9f973c37017fa1a6188588183d5a83309ab7d9e"
+    },
+    {
+      "path": "metadata/schema.json",
+      "bytes": 32926,
+      "sha256": "abff9d390b5e7b62f0a103d2d51247dc310652eeb18b45ca58769797ff559b44"
+    },
+    {
+      "path": "metadata/snapshot.json",
+      "bytes": 933,
+      "sha256": "a8d133424a4c3c614a06d2c5ae7c05eafe634145ee46823a9ae232f56343626f"
+    },
+    {
+      "path": "outputs/country_coverage.csv",
+      "bytes": 4283,
+      "sha256": "9710e60cd08a15199ce5a3699024fb7cc6c8aa21499597117ca71c5185d431db"
+    },
+    {
+      "path": "outputs/data_quality_summary.json",
+      "bytes": 1560,
+      "sha256": "81b9dae13e24f25e21ebfb83eb34f2fb7cbf23e3c3eeeb03235efc892e01792a"
+    },
+    {
+      "path": "outputs/evaluation_verification.json",
+      "bytes": 1838,
+      "sha256": "f61b29da612d8301218a2259e6cff04a28230b73b0f33e5dac30a35da321424a"
+    },
+    {
+      "path": "outputs/event_distribution.csv",
+      "bytes": 867,
+      "sha256": "6fb5f0e2e8727a11f5cb5f3e094128d4984dee37c9f1c3c8ca24b45c9ebba1a2"
+    },
+    {
+      "path": "outputs/indicator_diagnostics.csv",
+      "bytes": 2076,
+      "sha256": "db9a24094cc6c0911b78359cc3627bf9565bad663ca98a1e0cc108811375c421"
+    },
+    {
+      "path": "outputs/year_coverage.csv",
+      "bytes": 974,
+      "sha256": "03d06910e45362eca11ca144570c805e1cd4e272ba3d18ce066a9a26fc0c5e21"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 47,
+      "sha256": "598b8e4b3aeeaa1656b5420afa348f04679434d606ec828552031c8852ddf51a"
+    },
+    {
+      "path": "scripts/build_manifest.py",
+      "bytes": 2977,
+      "sha256": "d0d9b429e9c9f20922afd2bc8529f501dcf03240b0a0e05b78829092e98907be"
+    },
+    {
+      "path": "scripts/build_overview.py",
+      "bytes": 13896,
+      "sha256": "39cb5c91482b902d8796d92eea4c821522ccb11aca1062b166e9f8b259959e1f"
+    },
+    {
+      "path": "scripts/export_long.py",
+      "bytes": 1929,
+      "sha256": "009d2aa99bc8781fe5614819b6a883cce92bec4e9e41f54f9de79f07df1a1dfe"
+    },
+    {
+      "path": "scripts/test_validation.py",
+      "bytes": 2942,
+      "sha256": "1aacf02c75c28d442151d5e85a0a8cdb6861da5fc4cbf15ed8cd6d3482313256"
+    },
+    {
+      "path": "scripts/verify_evaluation.py",
+      "bytes": 5007,
+      "sha256": "b4459a3532eb35940162808f2e9a9bbb88f1f8070417549c5939ab24d413ec5d"
+    },
+    {
+      "path": "validation/README.md",
+      "bytes": 3826,
+      "sha256": "d36057a9bcacc60cd4c7c197503146a8e5ad323fee8c5c0cce06393221b4bb24"
+    },
+    {
+      "path": "validation/classification/classification_report_primary_BINARY_THEN_EVENTS.csv",
+      "bytes": 1673,
+      "sha256": "c93aa3a84225fecb7f3f3fef3a7977f523622e8a662d157381c5f6a3f0780483"
+    },
+    {
+      "path": "validation/classification/classification_report_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "bytes": 1645,
+      "sha256": "1cc4b9e13d59b1b80d5908dce9fff00306d4062a8dcd447b1fb98a83ad2c1b9c"
+    },
+    {
+      "path": "validation/classification/confusion_matrix_normalized_primary_BINARY_THEN_EVENTS.csv",
+      "bytes": 3097,
+      "sha256": "5c5e29330e8e3d57307011bae7192a1fe5cae0b7f4caf422e48d965166699a54"
+    },
+    {
+      "path": "validation/classification/confusion_matrix_normalized_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "bytes": 3033,
+      "sha256": "fdbadb172bd33b265e8fb812bde2670cd967c04ec8964b1f59382213d76700ab"
+    },
+    {
+      "path": "validation/classification/confusion_matrix_raw_primary_BINARY_THEN_EVENTS.csv",
+      "bytes": 1825,
+      "sha256": "e351d3468f50128dc9a0a8edc2f0a2630b935c400d42ef323e87a81322c651ce"
+    },
+    {
+      "path": "validation/classification/confusion_matrix_raw_primary_or_secondary_BINARY_THEN_EVENTS.csv",
+      "bytes": 1825,
+      "sha256": "3dfe01de51c733a036d7d35dbc2b55471ee0a270b82712e9b65a6098c00152c6"
+    },
+    {
+      "path": "validation/human_audit_summary.csv",
+      "bytes": 142,
+      "sha256": "cb6176d2398bc9bebf12d86ac52e67bb4a90caebdca454d3ec7bfcc72ba06a35"
+    },
+    {
+      "path": "validation/provenance.json",
+      "bytes": 3170,
+      "sha256": "987486c5fc0cfd3d39940ffa778449af1cc5fb7a0b3abcf640ce78e1af658ef7"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+metric,count
+correct_articles,1232
+reviewed_articles,1481
+selected_surges,100
+valid_surges,98
+event_error_flags,205
+geographic_error_flags,30

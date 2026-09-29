@@ -3,6 +3,7 @@
 __pycache__/
 *.py[cod]
 *.zip
+analysis/
 
 # Keep private submission materials outside this public repository.
 Submitted_MLEED_paper/

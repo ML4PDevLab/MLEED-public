@@ -1,0 +1,21 @@
+,sudden-onset environmental disaster,environmental cooperation,environmental government initiatives,environmental security,environmental -999,environmental arrest,human-induced disaster,displacement,-999,environmental legal action,environmental opinion,slow-onset environmental disaster,environmental corruption,environmental crime,environmental legal change,environmental activism,environmental corporate initiatives,lethal environmental violence,environmental protests,nonlethal environmental violence
+sudden-onset environmental disaster,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+environmental cooperation,0,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+environmental government initiatives,0,0,11,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+environmental security,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+environmental -999,0,0,1,0,10,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+environmental arrest,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+human-induced disaster,1,0,0,0,1,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0
+displacement,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0
+-999,0,2,0,0,2,0,0,0,165,1,0,0,2,1,0,0,1,0,0,0
+environmental legal action,0,0,0,0,0,1,0,0,0,13,0,0,0,0,0,0,0,0,0,0
+environmental opinion,0,0,0,0,1,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0
+slow-onset environmental disaster,0,0,0,0,0,0,0,0,0,0,0,11,0,0,1,0,0,0,0,0
+environmental corruption,0,0,0,0,1,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0
+environmental crime,0,0,0,0,0,0,0,0,0,1,0,0,0,12,0,0,0,0,0,0
+environmental legal change,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0
+environmental activism,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0
+environmental corporate initiatives,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,0
+lethal environmental violence,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,0,0
+environmental protests,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,15,0
+nonlethal environmental violence,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1
