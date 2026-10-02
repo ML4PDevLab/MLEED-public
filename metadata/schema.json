@@ -216,13 +216,13 @@
     {
       "name": "total_articles",
       "type": "integer",
-      "description": "Environmental documents included in the country-month numerator pool.",
+      "description": "Articles retained after environmental-relevance screening and with a category-classification record; the screened pool can include the second model's non-environmental label.",
       "required": true
     },
     {
       "name": "total_from_source",
       "type": "integer",
-      "description": "Source-aggregation article total; numerically identical to total_articles in this snapshot.",
+      "description": "Screened article pool aggregated across sources; numerically identical to total_articles in this snapshot.",
       "required": true
     },
     {
