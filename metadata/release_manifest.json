@@ -21,13 +21,13 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 1414,
-      "sha256": "73cce6e81678e1bdd1841752f87e1a9be3c598cef467bb75e2a70c14abddaadf"
+      "bytes": 1844,
+      "sha256": "d5d130c0dc4bc81b0efd38f731b40223e017df872f99453e4cf4dfc62b76ce23"
     },
     {
       "path": "README.md",
-      "bytes": 6393,
-      "sha256": "3cb694de73b87aeecdd5998f8f9fc9fc3e2c9bf38f957ce0f1fe236ec17c7737"
+      "bytes": 6797,
+      "sha256": "7b6ba65d1e660f15e9198d63490d6ed53e7904fcefdbfba4af743ca6e678201d"
     },
     {
       "path": "data/mleed_country_month_2012_2025.csv",
@@ -36,8 +36,8 @@
     },
     {
       "path": "docs/data_dictionary.md",
-      "bytes": 7107,
-      "sha256": "1490433379576e97c8ab3502d77d60e0867088d923877e66a00988ba73c442cd"
+      "bytes": 8297,
+      "sha256": "5bac6ae04165f23f063ef8528b15c2758772af07e4ff09fd974bdbeb1b956e1a"
     },
     {
       "path": "docs/repository_scope.md",
@@ -66,8 +66,8 @@
     },
     {
       "path": "metadata/schema.json",
-      "bytes": 33566,
-      "sha256": "1b83704471c558e2f7c34e89cfd12875a469d10e70978ca81058b3af07243adf"
+      "bytes": 33686,
+      "sha256": "cc19687d01500e3110c2f97d046efb977b3fed178dfff1f3f5f62f4dbe0aa46b"
     },
     {
       "path": "metadata/snapshot.json",

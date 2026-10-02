@@ -13,7 +13,7 @@
 
 The panel is balanced: every country has one observation for every month in the coverage period.
 
-Document counts refer to contributions to a country-month. An international report may contribute to multiple countries, so cross-country sums are not verified counts of unique corpus documents.
+Each row represents one country-month. Within that row, a raw category count records article-label assignments, not distinct incidents. An article can receive a primary and a secondary label. Document counts refer to contributions to a country-month; an international report may contribute to multiple countries, so cross-country sums are not verified counts of unique corpus documents.
 
 This describes the deposited file, not a certification that every source was collected. The exact 69 country names and all 88 fields are recorded in [metadata/schema.json](../metadata/schema.json). Country and year summaries appear in [outputs/country_coverage.csv](../outputs/country_coverage.csv) and [outputs/year_coverage.csv](../outputs/year_coverage.csv).
 
@@ -25,10 +25,12 @@ This describes the deposited file, not a certification that every source was col
 | `date` | date | First day of the observation month |
 | `year` | integer | Calendar year |
 | `month` | integer | Calendar month, 1–12 |
-| `total_articles` | integer | Environmental documents included in the country-month numerator pool |
-| `total_from_source` | integer | Environmental documents aggregated across the included sources; identical to `total_articles` in this release |
+| `total_articles` | integer | Articles retained after environmental-relevance screening and with a category-classification record; this screened pool can include the second model's `-999` label |
+| `total_from_source` | integer | The same screened article pool aggregated across the included sources; identical to `total_articles` in this release |
 | `total_label_events` | integer | Sum of all 20 raw label columns, including auxiliary fields; an article may contribute primary and secondary labels |
 | `total_local_docs` | integer | All locally relevant documents in the country-month and the denominator for normalized measures |
+
+In the documented July 2026 aggregation routine, the denominator includes all records meeting the inclusion, source and country rules, without an environmental-classification filter. The screened article pool additionally requires `environmental_binary.result` to be `Yes` and an existing `env_classifier` record. Its primary and secondary labels are counted without removing the second model's non-environmental (`-999`) label. These totals therefore do not count independently verified environmental articles. The documented routine explains these field meanings; its exact version has not been linked to the historical CSV, as noted in [repository scope](repository_scope.md).
 
 ## Substantive event taxonomy
 
@@ -57,11 +59,11 @@ The paper-level taxonomy contains 16 categories. The data keeps lethal and nonle
 
 The data also contains three classifier bookkeeping categories:
 
-- `environmental opinion`
-- `environmental -999`
-- `-999`
+- `environmental opinion`: environmental opinion content
+- `environmental -999`: environmental content outside the named categories
+- `-999`: the category classifier's non-environmental label
 
-These are not part of the 16 substantive categories and should normally be excluded from substantive event totals, figures, and models. They are retained so that the aggregate table remains traceable to the classification output.
+These are not part of the 16 substantive categories and should normally be excluded from substantive event totals, figures, and models. They are retained so that the aggregate table remains traceable to the classification output. The two names containing `-999` identify count columns, not missing-value codes.
 
 ## Repeated column families
 
