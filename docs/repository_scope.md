@@ -14,7 +14,7 @@ The publication target is a data descriptor documenting construction, records, v
 | Classifier validation | Six numeric aggregate files checked against 431-case confusion matrices |
 | Binary environmental gate | Separate 2×2 aggregate matrix with source hash and explicit label rules |
 | Recovered surge routine | Isolated definitions, inherited MIT notice, input hashes, and comparison script; frozen-indicator lineage unresolved |
-| Human-review summary | Purposive surge audit, with incomplete error accounting disclosed |
+| Human-review summary | Selected-surge audit; randomization procedure is undocumented and incomplete error accounting is disclosed |
 | Reuse code | Category pooling and reporting rates, with tested safeguards |
 | File identity | Explicit manifest, SHA-256 checksums, snapshot metadata |
 

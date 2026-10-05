@@ -52,7 +52,7 @@
     "event_error_flags": 205,
     "geographic_error_flags": 30,
     "unexplained_difference_if_error_types_disjoint": 14,
-    "sampling": "purposive across geography, media environments, article volumes; not random",
+    "sampling": "The report describes selection across geography, media environments and article volumes; the randomization procedure is not documented in retained records.",
     "borderline_rule": "counted as correct",
     "excluded_categories": [
       "sudden-onset environmental disaster",
