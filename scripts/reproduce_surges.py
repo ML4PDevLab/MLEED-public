@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare a recovered surge routine with frozen indicators; never replace data."""
+"""Verify the current surge indicators from their pinned complete input window."""
 
 from __future__ import annotations
 
@@ -8,12 +8,14 @@ import ast
 import hashlib
 import json
 from pathlib import Path
+import urllib.request
 import warnings
 
 import numpy as np
 import pandas as pd
 
 from recovered_surge import PeakDetector, convert_to_training_data_2
+from freeze_snapshot import SOURCE_RECORD, extract_bytes
 from verify_evaluation import compare_saved
 
 
@@ -21,13 +23,14 @@ ROOT = Path(__file__).resolve().parents[1]
 FROZEN = ROOT / "data/mleed_country_month_2012_2025.csv"
 PROVENANCE = ROOT / "validation/surge_provenance.json"
 SUMMARY = ROOT / "outputs/surge_reconstruction_summary.json"
+DEFAULT_SOURCE = ROOT / "analysis/full-mleed-source-20261013.csv"
 
 
-def digest(path):
+def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def verify_definitions(provenance):
+def verify_definitions(provenance: dict) -> None:
     text = (ROOT / "scripts/recovered_surge.py").read_text()
     parsed = ast.parse(text)
     for source in provenance["source_files"]:
@@ -38,119 +41,97 @@ def verify_definitions(provenance):
             raise ValueError("Recovered definition differs from the recorded upstream source")
 
 
-def compare_input(data, frozen):
-    labels = [c for c in frozen.columns if c.endswith("Norm")]
+def verify_indicators(data: pd.DataFrame, reference: pd.DataFrame) -> dict:
+    labels = [c for c in reference.columns if c.endswith("Norm")]
     if data.duplicated(["country", "date"]).any():
         raise ValueError("Input contains duplicate country-month keys")
     detector = PeakDetector(12, 0.88, 1, 0.05, 0.2)
     result = {
-        "source_rows": int(len(data)),
-        "source_countries": int(data.country.nunique()),
-        "source_start_month": str(data.date.min())[:7],
-        "source_end_month": str(data.date.max())[:7],
+        "source_rows": int(len(data)), "source_countries": int(data.country.nunique()),
+        "source_start_month": str(data.date.min())[:7], "source_end_month": str(data.date.max())[:7],
         "source_missing_normalized_cells": int(data[labels].isna().sum().sum()),
-        "comparison_cells": 0,
-        "candidate_vs_own_source_shock_differences": 0,
-        "candidate_vs_own_source_screen_differences": 0,
-        "candidate_vs_frozen_shock_differences": 0,
-        "candidate_vs_frozen_screen_differences": 0,
-        "own_source_vs_frozen_shock_differences": 0,
-        "own_source_vs_frozen_screen_differences": 0,
-        "own_source_vs_frozen_raw_count_differences": 0,
-        "own_source_vs_frozen_normalized_differences": 0,
-        "candidate_positive_shocks": 0,
-        "stored_frozen_positive_shocks": 0,
+        "release_rows": int(len(reference)), "release_countries": int(reference.country.nunique()),
+        "release_missing_normalized_cells": int(reference[labels].isna().sum().sum()),
+        "comparison_cells_per_family": 0,
+        "NormShock_differences": 0, "NormShockCountGt3_differences": 0,
+        "count_screen_rule_differences": 0,
+        "stored_NormShock_positive_cells": 0, "stored_NormShockCountGt3_positive_cells": 0,
     }
-    for country, reference in frozen.groupby("country", sort=True):
+    for country, group_reference in reference.groupby("country", sort=True):
         group = data.loc[data.country == country].sort_values("date")
-        if not set(reference.date).issubset(set(group.date)):
-            raise ValueError(f"Input does not contain the frozen comparison months for {country}")
-        overlap = group.date.isin(reference.date).to_numpy()
+        if not set(group_reference.date).issubset(set(group.date)):
+            raise ValueError(f"Source does not contain the release months for {country}")
+        overlap = group.date.isin(group_reference.date).to_numpy()
         historical = group.loc[overlap]
-        reference = reference.set_index("date").loc[historical.date]
+        expected = group_reference.set_index("date").loc[historical.date]
         for label in labels:
-            # NaNs are deliberately retained to reproduce the source's numerical behavior.
+            # Retain later missing values to reproduce the published source's behavior.
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore", RuntimeWarning)
                 _, _, predictions = convert_to_training_data_2(
                     group[label].to_numpy(), country, label, detector, None
                 )
-            candidate = np.asarray(predictions, dtype=int)[overlap]
+            predicted = np.asarray(predictions, dtype=int)[overlap]
             raw = historical[label[:-4]].to_numpy()
-            screened = ((candidate == 1) & (raw > 3)).astype(int)
-            source_shock = historical[label + "Shock"].to_numpy()
-            source_screen = historical[label + "ShockCountGt3"].to_numpy()
-            frozen_shock = reference[label + "Shock"].to_numpy()
-            frozen_screen = reference[label + "ShockCountGt3"].to_numpy()
-            for key, left, right in [
-                ("candidate_vs_own_source_shock_differences", candidate, source_shock),
-                ("candidate_vs_own_source_screen_differences", screened, source_screen),
-                ("candidate_vs_frozen_shock_differences", candidate, frozen_shock),
-                ("candidate_vs_frozen_screen_differences", screened, frozen_screen),
-                ("own_source_vs_frozen_shock_differences", source_shock, frozen_shock),
-                ("own_source_vs_frozen_screen_differences", source_screen, frozen_screen),
-                ("own_source_vs_frozen_raw_count_differences", raw, reference[label[:-4]].to_numpy()),
-            ]:
-                result[key] += int(np.count_nonzero(left != right))
-            close = np.isclose(historical[label].to_numpy(), reference[label].to_numpy(), rtol=0, atol=1e-12, equal_nan=True)
-            result["own_source_vs_frozen_normalized_differences"] += int((~close).sum())
-            result["candidate_positive_shocks"] += int(candidate.sum())
-            result["stored_frozen_positive_shocks"] += int(frozen_shock.sum())
-            result["comparison_cells"] += len(candidate)
-    expected = len(frozen) * len(labels)
-    if result["comparison_cells"] != expected:
-        raise ValueError(f"Expected {expected} shared flag cells")
+            screened = ((predicted == 1) & (raw > 3)).astype(int)
+            stored = expected[label + "Shock"].to_numpy()
+            stored_screen = expected[label + "ShockCountGt3"].to_numpy()
+            result["NormShock_differences"] += int(np.count_nonzero(predicted != stored))
+            result["NormShockCountGt3_differences"] += int(np.count_nonzero(screened != stored_screen))
+            result["count_screen_rule_differences"] += int(np.count_nonzero(stored_screen != ((stored == 1) & (raw > 3))))
+            result["stored_NormShock_positive_cells"] += int(stored.sum())
+            result["stored_NormShockCountGt3_positive_cells"] += int(stored_screen.sum())
+            result["comparison_cells_per_family"] += len(predicted)
+    if result["comparison_cells_per_family"] != len(reference) * len(labels):
+        raise ValueError("Indicator comparison did not cover every release row and label")
+    if any(result[k] for k in ["NormShock_differences", "NormShockCountGt3_differences", "count_screen_rule_differences"]):
+        raise ValueError(f"Current indicators do not reproduce: {result}")
     return result
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source-csv", type=Path, action="append", default=[],
-                        help="Optional full historical source CSV; must match a recorded checksum")
-    parser.add_argument("--check", action="store_true", help="Check computed comparisons against saved summary")
-    parser.add_argument("--write-summary", action="store_true", help="Refresh summary only; requires both recorded historical inputs")
+    parser.add_argument("--source-csv", type=Path, default=DEFAULT_SOURCE,
+                        help="Complete source CSV with the recorded checksum")
+    parser.add_argument("--download-source", action="store_true",
+                        help="Download the pinned public aggregate CSV if the source path is absent")
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--check", action="store_true", help="Verify against the saved result")
+    modes.add_argument("--write-summary", action="store_true", help="Write the verified result only")
     args = parser.parse_args()
-    if args.check and args.write_summary:
-        parser.error("Choose either --check or --write-summary")
     provenance = json.loads(PROVENANCE.read_text())
     verify_definitions(provenance)
+    source = provenance["full_window_source"]
+    if args.download_source and not args.source_csv.exists():
+        args.source_csv.parent.mkdir(parents=True, exist_ok=True)
+        with urllib.request.urlopen(source["csv_url"], timeout=60) as response:
+            contents = response.read()
+        if hashlib.sha256(contents).hexdigest() != source["csv_sha256"]:
+            raise SystemExit("Downloaded source checksum differs; no file written")
+        with args.source_csv.open("xb") as handle:
+            handle.write(contents)
+    if not args.source_csv.is_file():
+        raise SystemExit("Complete source CSV is required. Use --download-source or --source-csv PATH.")
+    if digest(args.source_csv) != source["csv_sha256"]:
+        raise ValueError("Source checksum differs from the pinned October 2026 export")
     if digest(FROZEN) != provenance["frozen_data_sha256"]:
-        raise ValueError("Frozen dataset checksum differs from the comparison record")
-    frozen = pd.read_csv(FROZEN)
+        raise ValueError("Release checksum differs from the recorded snapshot")
+    if extract_bytes(args.source_csv, json.loads(SOURCE_RECORD.read_text())) != FROZEN.read_bytes():
+        raise ValueError("Release is not the recorded historical extraction of the source")
     result = {
-        "code_revision": provenance["code_revision"],
-        "mode": provenance["mode"],
-        "parameters": provenance["parameters"],
-        "frozen_input_sha256": digest(FROZEN),
-        "frozen_input": compare_input(frozen, frozen),
-        "full_window_comparisons": [],
+        "code_revision": provenance["code_revision"], "mode": provenance["mode"],
+        "parameters": provenance["parameters"], "release_data_sha256": digest(FROZEN),
+        "full_window_source_sha256": digest(args.source_csv),
+        "source_revision": source["revision"],
+        **verify_indicators(pd.read_csv(args.source_csv), pd.read_csv(FROZEN)),
+        "status": "exact_reproduction",
+        "window_note": "The complete source window is supplied before selecting the 2012–2025 release months. Later missing normalized values are retained; none occur in the release.",
     }
-    known = {item["sha256"]: item for item in provenance["historical_input_candidates"]}
-    seen = set()
-    for path in args.source_csv:
-        checksum = digest(path)
-        if checksum not in known or checksum in seen:
-            raise ValueError("Each historical CSV must match a distinct recorded source checksum")
-        seen.add(checksum)
-        source = known[checksum]
-        comparison = {"revision": source["revision"], "source_file_sha256": checksum,
-                      **compare_input(pd.read_csv(path), frozen)}
-        result["full_window_comparisons"].append(comparison)
-    result["full_window_comparisons"].sort(key=lambda item: item["revision"])
     if args.write_summary:
-        if seen != set(known):
-            raise ValueError("Both recorded historical inputs are required to refresh the complete summary")
         SUMMARY.write_text(json.dumps(result, indent=2) + "\n")
     if args.check:
-        stored = json.loads(SUMMARY.read_text())
-        for key in result.keys() - {"full_window_comparisons"}:
-            compare_saved(stored[key], result[key], key)
-        stored_sources = {item["revision"]: item for item in stored["full_window_comparisons"]}
-        for comparison in result["full_window_comparisons"]:
-            compare_saved(stored_sources[comparison["revision"]], comparison, comparison["revision"])
+        compare_saved(json.loads(SUMMARY.read_text()), result, "surge_reproduction")
     print(json.dumps(result, indent=2))
-    if args.check and not args.source_csv:
-        print("Verified frozen-input comparison only; historical full-window checks require --source-csv inputs.")
 
 
 if __name__ == "__main__":

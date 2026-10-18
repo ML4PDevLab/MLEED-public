@@ -1,0 +1,45 @@
+{
+  "code_repository": "https://github.com/ML4PDevLab/MLP-data-intro",
+  "code_revision": "fea13989b8ee6803d1ed82f091097730ae04f727",
+  "license": "MIT (existing upstream grant; applies to recovered definitions only)",
+  "source_files": [
+    {
+      "path": "build_data/shock_detection/peak_detector.py",
+      "sha256": "7b965eb1b49789b6803af06b6316e9c63a384301007d2bc48dfe307bb4b8a397",
+      "retained_definition": "PeakDetector",
+      "definition_sha256": "ae812577ca89de55da561d2cb94e2390e78b77b4d92e2044f294ef9d944b653b",
+      "url": "https://github.com/ML4PDevLab/MLP-data-intro/blob/fea13989b8ee6803d1ed82f091097730ae04f727/build_data/shock_detection/peak_detector.py"
+    },
+    {
+      "path": "build_data/shock_detection/shock_detection.py",
+      "sha256": "90243cff2914da6f5880838d7d82bd132a8b29066adbe76d480e02cedbab69be",
+      "retained_definition": "convert_to_training_data_2",
+      "definition_sha256": "ceb253b646f8d4ca5e9db6205c08484bfacb9d29f51e9641388d4b6210422ff8",
+      "url": "https://github.com/ML4PDevLab/MLP-data-intro/blob/fea13989b8ee6803d1ed82f091097730ae04f727/build_data/shock_detection/shock_detection.py"
+    }
+  ],
+  "mode": "TensorFlow disabled; loaded_model=None; recovered definitions unchanged",
+  "parameters": {
+    "lookaround": 12,
+    "std_dev": 0.88,
+    "normalize": 1,
+    "alpha": 0.05,
+    "beta": 0.2,
+    "count_threshold_exclusive": 3
+  },
+  "frozen_data_sha256": "caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7",
+  "historical_input_candidates": [
+    {
+      "revision": "622e82535612476e7952a141623c3c48ecbee85a",
+      "path": "data/final-counts/full-mleed-data.csv",
+      "sha256": "18648b534ae6d17298ae66bdba4e83fb94685fbf914ed7f129a554f9045876a4",
+      "url": "https://raw.githubusercontent.com/ML4PDevLab/MLP-data-intro/622e82535612476e7952a141623c3c48ecbee85a/data/final-counts/full-mleed-data.csv"
+    },
+    {
+      "revision": "cbfc9d5fa7355c997f5efccdfb2047a1ca550551",
+      "path": "data/final-counts/full-mleed-data.csv",
+      "sha256": "5b9d32da2c2881c11cc009c891d26465e04b6c0325ecf6166df9aa4fc019d6f0",
+      "url": "https://raw.githubusercontent.com/ML4PDevLab/MLP-data-intro/cbfc9d5fa7355c997f5efccdfb2047a1ca550551/data/final-counts/full-mleed-data.csv"
+    }
+  ]
+}

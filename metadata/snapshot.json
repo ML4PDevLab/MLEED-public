@@ -1,22 +1,22 @@
 {
-  "metadata_version": 1,
-  "snapshot_id": "mleed-country-month-2012-2025",
+  "metadata_version": 2,
+  "snapshot_id": "mleed-country-month-2012-2025-71-20261018",
   "status": "prepublication",
   "data_file": "data/mleed_country_month_2012_2025.csv",
-  "data_sha256": "caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7",
-  "rows": 11592,
+  "data_sha256": "78c1d7ba8728fb3b83027ee90c6b7abc4958921ed543b2588821a1657867fef3",
+  "rows": 11928,
   "columns": 88,
-  "countries": 69,
+  "countries": 71,
   "start_month": "2012-01",
   "end_month": "2025-12",
   "public_repository": "https://github.com/ML4PDevLab/MLEED-public",
-  "source_repository_commit": "9f335a2",
+  "source_repository_commit": "03680567f283a8613b2516b7217dfe2bf63b1a5e",
   "data_license": null,
   "code_license": null,
   "archival_doi": null,
   "collection_completeness_certified": false,
   "historical_extraction_and_model_version_linkage_verified": false,
-  "coverage_note": "69 countries are present in this deposited file. A live roster or dashboard does not certify a 71-country or 2026 data release.",
+  "coverage_note": "71 countries have complete monthly aggregate records for January 2012\u2013December 2025. Later 2026 source months are retained only in the pinned external input needed to reproduce surge indicators.",
   "availability_note": "Aggregate data and supporting numeric reports only; no article text, credentials, or database exports.",
   "upstream_code_licenses": [
     {
@@ -25,5 +25,10 @@
       "notice": "licenses/MLP-data-intro-MIT.txt",
       "scope": "Copied upstream definitions only; not a license for other original package code or aggregate data."
     }
-  ]
+  ],
+  "source_repository": "https://github.com/ML4PDevLab/MLP-data-intro",
+  "source_record": "metadata/source_snapshot_71_20261018.json",
+  "previous_snapshot_commit": "81c30acb56d9d05779c92cb583c04b730b39c680",
+  "surge_indicators_reproduced_from_pinned_full_window": true,
+  "processing_note": "The known Libya cohort of 25,599 included records awaits processing; see source_snapshot_71_20261018.json."
 }

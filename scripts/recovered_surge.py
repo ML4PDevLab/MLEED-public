@@ -1,7 +1,8 @@
 """Recovered MLP surge definitions, copied without algorithm changes.
 
 Only the class and pure function are retained; no production entrypoint runs.
-Source: ML4PDevLab/MLP-data-intro at fea13989b8ee6803d1ed82f091097730ae04f727
+Source: ML4PDevLab/MLP-data-intro at 03680567f283a8613b2516b7217dfe2bf63b1a5e
+Definitions are unchanged from the earlier recovered revision.
 License: MIT, Copyright (c) 2025 Machine Learning for Peace.
 Full notice: ../licenses/MLP-data-intro-MIT.txt
 """

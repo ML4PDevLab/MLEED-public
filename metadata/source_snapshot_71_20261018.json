@@ -1,0 +1,88 @@
+{
+  "metadata_version": 1,
+  "snapshot_id": "mleed-country-month-2012-2025-71-20261018",
+  "source": {
+    "repository": "https://huggingface.co/datasets/zungru/mlp-counts",
+    "revision": "cba21755f1293e2c3808e07e542ae00a79e03df7",
+    "last_modified": "2026-10-13T19:02:24.000Z",
+    "csv_url": "https://huggingface.co/datasets/zungru/mlp-counts/resolve/cba21755f1293e2c3808e07e542ae00a79e03df7/full-mleed-data.csv",
+    "csv_sha256": "736719f220aff515a75c4fb0be4e117927be6fda51d52bf35d1719ffbcaefcbe",
+    "csv_bytes": 5444385,
+    "rows": 12576,
+    "columns": 88,
+    "countries": 71,
+    "start_month": "2012-01",
+    "end_month": "2026-10",
+    "missing_normalized_cells": 1780,
+    "missing_normalized_cells_note": "All are after December 2025. Preserve these later values when reproducing the stored retrospective surge indicators.",
+    "github_repository": "https://github.com/ML4PDevLab/MLP-data-intro",
+    "github_commit": "03680567f283a8613b2516b7217dfe2bf63b1a5e",
+    "github_csv_url": "https://raw.githubusercontent.com/ML4PDevLab/MLP-data-intro/03680567f283a8613b2516b7217dfe2bf63b1a5e/data/final-counts/full-mleed-data.csv",
+    "github_csv_byte_identity_verified": true
+  },
+  "extraction": {
+    "script": "scripts/freeze_snapshot.py",
+    "start_date": "2012-01-01",
+    "end_date": "2025-12-01",
+    "method": "Read all fields as text, retain rows in the inclusive date window, sort by country and date, retain original columns and numeric tokens, write UTF-8 CSV with LF endings. No counts or indicators recalculated.",
+    "data_sha256": "78c1d7ba8728fb3b83027ee90c6b7abc4958921ed543b2588821a1657867fef3",
+    "rows": 11928,
+    "columns": 88,
+    "countries": 71
+  },
+  "previous_snapshot": {
+    "snapshot_id": "mleed-country-month-2012-2025",
+    "repository_commit": "81c30acb56d9d05779c92cb583c04b730b39c680",
+    "data_sha256": "caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7",
+    "countries": 69,
+    "rows": 11592,
+    "data_url": "https://raw.githubusercontent.com/ML4PDevLab/MLEED-public/81c30acb56d9d05779c92cb583c04b730b39c680/data/mleed_country_month_2012_2025.csv",
+    "archived_audits": "validation/history/69_country_20261005/"
+  },
+  "changes": {
+    "added_countries": [
+      "Iraq",
+      "Libya"
+    ],
+    "existing_countries_with_changed_values": 53,
+    "existing_rows_with_changed_values": 6513,
+    "changed_numeric_cells": 133014,
+    "changed_count_or_normalized_cells": 129478,
+    "changed_NormShock_cells": 2130,
+    "changed_NormShockCountGt3_cells": 1406,
+    "note": "This is a new complete snapshot, not an append-only expansion of the previous 69-country file."
+  },
+  "quality_checks": {
+    "countries": 71,
+    "rows": 11928,
+    "columns": 88,
+    "duplicate_country_months": 0,
+    "all_168_months_every_country": true,
+    "null_cells": 0,
+    "nonpositive_denominator_rows": 0,
+    "label_sum_mismatch_rows": 0,
+    "articles_from_source_mismatch_rows": 0,
+    "norm_bad_cells": 0,
+    "nonbinary_flag_cells": 0,
+    "count_gt3_inconsistent_flags": 0,
+    "totals": {
+      "total_local_docs": 59611079,
+      "total_articles": 1782400,
+      "total_label_events": 1981939
+    }
+  },
+  "processing_note": {
+    "country": "Libya",
+    "checked_at": "2026-10-17",
+    "included_historical_records_awaiting_processing": 25599,
+    "records_with_URL_in_language_field": 25517,
+    "records_without_original_title": 82,
+    "historical_country_denominator": 317759,
+    "denominator_share": 0.0805610541322197,
+    "status": "A fresh read-only check found this previously identified cohort still missing translation, binary classification and geographic outputs. These records contribute to the current denominator. Their eventual processing may change category counts and country assignment. The October 13 country counts and normalized values match the October 2 aggregate snapshot; this release does not claim the cohort was repaired.",
+    "scope": "Known cohort only; not an estimate of missing environmental-positive articles or a complete source audit. No article text or identifiers are included."
+  },
+  "evaluation_note": "The 431-case classifier matrices and 1,481-article human-review totals are unchanged historical evaluation evidence; the country expansion is not a new evaluation sample.",
+  "database_writes": 0,
+  "production_jobs_launched": 0
+}

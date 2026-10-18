@@ -1,6 +1,6 @@
 # Aggregate validation evidence
 
-This directory contains numeric summaries from the project evaluation archive. Source-file identities are recorded in [provenance.json](provenance.json); the package is covered by [SHA256SUMS](../SHA256SUMS). No news text or individual prediction records are included.
+This directory contains numeric summaries from the project evaluation archive. Source-file identities are recorded in [provenance.json](provenance.json); the package is covered by [SHA256SUMS](../SHA256SUMS). No news text or individual prediction records are included. The 71-country update retains the same 431-case classifier evidence and 1,481-article human review; it does not introduce a new evaluation sample. Current indicator reproduction is recorded separately in [surge_provenance.json](surge_provenance.json).
 
 ## Classifier reports
 
@@ -27,7 +27,7 @@ A frozen link among training data, test split identifiers, model weights, infere
 
 [human_audit_summary.csv](human_audit_summary.csv) transcribes six aggregate counts from *MLEED Validation*, prepared by Idalee Vargas and dated 18 June 2026. The private source HTML is identified by SHA-256 in the provenance record.
 
-Three reviewers assessed selected country-month surges. Categories were divided among reviewers, and observations were chosen to span geographic settings, media environments, and article volumes. **Selection was purposive, not random.** Reviewers checked category assignment, country assignment, and whether the month represented a meaningful surge. Borderline article cases were counted as correct. Sudden-onset and slow-onset disasters were excluded.
+Three reviewers assessed selected country-month surges. The report describes dividing categories among reviewers and selecting observations to span geographic settings, media environments, and article volumes. The retained records do not document the randomization procedure; these selection criteria alone do not establish whether random sampling was used. Reviewers checked category assignment, country assignment, and whether the month represented a meaningful surge. Borderline article cases were counted as correct. Sudden-onset and slow-onset disasters were excluded.
 
 The summary records 1,232 correct of 1,481 reviewed articles (83.187%) and 98 valid of 100 selected surges (98%). These are descriptive fractions within the selected sample. They do not estimate population-wide accuracy, recall of unobserved surges, or inter-rater agreement; dividing categories among reviewers does not provide overlapping ratings for agreement analysis.
 

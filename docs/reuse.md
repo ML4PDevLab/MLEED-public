@@ -2,7 +2,7 @@
 
 ## Reading and joining
 
-Read the UTF-8 CSV with `country` as text and `date` as a month-start date. The primary key is `(country, date)`. The file is balanced across 69 countries and 168 months, but this structural property does not establish completeness of underlying news collection.
+Read the UTF-8 CSV with `country` as text and `date` as a month-start date. The primary key is `(country, date)`. The file is balanced across 71 countries and 168 months, but this structural property does not establish completeness of underlying news collection.
 
 The exact country strings are listed in [the schema](../metadata/schema.json). Retain the original strings and add an explicit crosswalk for external joins. In particular, the snapshot uses `DR Congo`, `Macedonia`, `Timor Leste`, and `Turkey`. Do not silently change these strings or assume they are ISO identifiers. Names are release identifiers and do not express a position on territorial status.
 
@@ -42,14 +42,14 @@ A zero label count means no such labels occur in the included records for that m
 
 ## Surge indicators
 
-The indicators are retained from the historical export. A recovered routine reproduces two later source snapshots on their own input windows, but their linkage to the exact frozen indicators remains unresolved; see [surge reconstruction](surge_reconstruction.md). `NormShockCountGt3` must not be interpreted only from its suffix: 36 cells fail the literal comparison with `NormShock` and raw count greater than three. [The diagnostic file](../outputs/indicator_diagnostics.csv) identifies each affected country, month, and label.
+The stored indicators identify elevated reporting within each country-label series. Both families reproduce exactly from the complete pinned source; [surge reproduction](surge_reconstruction.md) provides the verification command. `NormShockCountGt3` additionally requires more than three assigned labels in the month, and every stored field agrees with that rule.
 
-This discrepancy does not change the independently checked count-to-denominator identities. Analysts can build a new surge measure from count or normalized series, but should give it a new name and report its baseline, window, threshold, minimum count, and treatment of early months. Do not silently overwrite stored fields or claim to reproduce their historical method.
+Use the complete source window when reproducing these retrospective indicators, then select the months needed for analysis. The detector uses earlier and later observations and whole-series preprocessing, so shortening the window or adding new months can change flags. A new analytical rule should have a distinct name and documented baseline, window, threshold and missing-value treatment.
 
 ## Supplied code
 
-`build_overview.py` validates the panel and recreates neutral descriptive outputs. `export_long.py` creates 185,472 country-month-category rows with six fields: `country`, `date`, `total_local_docs`, `category`, `label_count`, and `labels_per_10000_documents`. The denominator repeats for each category and must not be summed across categories.
+`build_overview.py` validates the panel and recreates neutral descriptive outputs. `export_long.py` creates 190,848 country-month-category rows with six fields: `country`, `date`, `total_local_docs`, `category`, `label_count`, and `labels_per_10000_documents`. The denominator repeats for each category and must not be summed across categories.
 
 `verify_evaluation.py` recalculates aggregate classifier metrics and human-audit fractions. It does not retrain a model or rerun news collection. [Validation documentation](../validation/README.md) explains what the evaluation samples support.
 
-These scripts run without database credentials. Collection, translation, inference, and geographic extraction are not reproduced here. The isolated surge comparator reproduces specified candidate runs while preserving the frozen data. National and subnational dashboards are separate products and should not be joined as though they have identical coverage or denominators.
+These scripts run without database credentials. Collection, translation, inference, and geographic extraction are not reproduced here. The isolated surge verifier reproduces the current stored indicators while preserving the release data. National and subnational dashboards are separate products and should not be joined as though they have identical coverage or denominators.

@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "snapshot_id": "mleed-country-month-2012-2025",
+  "snapshot_id": "mleed-country-month-2012-2025-71-20261018",
   "package_status": "prepublication",
   "scope": "Explicit public files only. The manifest and SHA256SUMS exclude themselves to avoid recursive hashes.",
   "files": [
@@ -11,8 +11,8 @@
     },
     {
       "path": ".github/workflows/validate-data.yml",
-      "bytes": 991,
-      "sha256": "170aa34a13ea939d1d5b8bbd240bf44bd08159461626b35e502e5e457edf6de3"
+      "bytes": 1006,
+      "sha256": "0865220ecd8ff40c294bb3f332eff228b9173318e71a3f3a8d69e7ddecd4e434"
     },
     {
       "path": ".gitignore",
@@ -21,43 +21,43 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 1844,
-      "sha256": "d5d130c0dc4bc81b0efd38f731b40223e017df872f99453e4cf4dfc62b76ce23"
+      "bytes": 2840,
+      "sha256": "091cbf9dce91e24e470d43ec91256d1b457d5caa5a00bb24e428069c3ca74bb8"
     },
     {
       "path": "README.md",
-      "bytes": 6797,
-      "sha256": "7b6ba65d1e660f15e9198d63490d6ed53e7904fcefdbfba4af743ca6e678201d"
+      "bytes": 6128,
+      "sha256": "a4227c299210ca1603ee9209a79fe45fd678b4c0de67069eb576f81dde6953b6"
     },
     {
       "path": "data/mleed_country_month_2012_2025.csv",
-      "bytes": 5007575,
-      "sha256": "caa171c34fb33ab5df1e10be8e79e9bbb7d9cb82006c2b4e9f77d9416f47e4c7"
+      "bytes": 5185901,
+      "sha256": "78c1d7ba8728fb3b83027ee90c6b7abc4958921ed543b2588821a1657867fef3"
     },
     {
       "path": "docs/data_dictionary.md",
-      "bytes": 8297,
-      "sha256": "5bac6ae04165f23f063ef8528b15c2758772af07e4ff09fd974bdbeb1b956e1a"
+      "bytes": 8069,
+      "sha256": "13be047f0ea6f8d4d8ce415832d44724c414994ccadd03f5a3db0530bc84b943"
     },
     {
       "path": "docs/repository_scope.md",
-      "bytes": 4386,
-      "sha256": "7e03c784174c16b4d6c0fc19d53d86622b40afd2d9c291f9e0752a3c9832e3f7"
+      "bytes": 2753,
+      "sha256": "9bc88312f069ab3c8dee880b7d94ab88efd6dbaa8108dd1bbdd280c8b2051cd9"
     },
     {
       "path": "docs/reuse.md",
-      "bytes": 4916,
-      "sha256": "59d00890e22ae74e8f40a9c7baa394c1818270def991edd199189f748b958ec8"
+      "bytes": 4774,
+      "sha256": "65e836f0f6dce2ce169213a5e5751fb9fa660cafa6c248798b0f4e6c8d4c77e9"
     },
     {
       "path": "docs/surge_reconstruction.md",
-      "bytes": 6090,
-      "sha256": "2a8db3dc16455c9028a86b2f513d4d3eeedd36ea91970effbd99934f85265368"
+      "bytes": 4311,
+      "sha256": "16592e05b46fc6b01ea7d3def7987d336f9caa44ee7828d1b38e3c333997ad5c"
     },
     {
       "path": "figures/event_distribution.png",
-      "bytes": 196445,
-      "sha256": "d415afe7ac72cee064b05bb7d9f973c37017fa1a6188588183d5a83309ab7d9e"
+      "bytes": 196050,
+      "sha256": "db916bae3aff705db5ef3757b453436b36d879f701f7562889c28018a266f26a"
     },
     {
       "path": "licenses/MLP-data-intro-MIT.txt",
@@ -66,48 +66,53 @@
     },
     {
       "path": "metadata/schema.json",
-      "bytes": 33686,
-      "sha256": "cc19687d01500e3110c2f97d046efb977b3fed178dfff1f3f5f62f4dbe0aa46b"
+      "bytes": 32751,
+      "sha256": "c8733df84001b7e6ba6451e48462194a9ff401cda7db34b1fd088170dce728be"
     },
     {
       "path": "metadata/snapshot.json",
-      "bytes": 1215,
-      "sha256": "267e5648ccdeeacfe82273235b606945c70ebc802bb4e86b669808d497550f59"
+      "bytes": 1735,
+      "sha256": "5fdb095a75f8f01e04feef87292afcc02fc15b5ae3c89d14cb9b9eae7940f2b8"
+    },
+    {
+      "path": "metadata/source_snapshot_71_20261018.json",
+      "bytes": 4350,
+      "sha256": "fdbc36c730395baaf3880c447fdcf7afd4c18133e792a7de3e2c60d3216b94c9"
     },
     {
       "path": "outputs/country_coverage.csv",
-      "bytes": 4283,
-      "sha256": "9710e60cd08a15199ce5a3699024fb7cc6c8aa21499597117ca71c5185d431db"
+      "bytes": 4400,
+      "sha256": "7b3cfe1dd770d92c5ddbb784cdefef9b9e0dab31da2eb5813479dcaa787bcc68"
     },
     {
       "path": "outputs/data_quality_summary.json",
-      "bytes": 1560,
-      "sha256": "81b9dae13e24f25e21ebfb83eb34f2fb7cbf23e3c3eeeb03235efc892e01792a"
+      "bytes": 1622,
+      "sha256": "5270946032379f19e1b3edfd38c6f277b2531bd4dfe587572739663187e7c291"
     },
     {
       "path": "outputs/evaluation_verification.json",
-      "bytes": 2216,
-      "sha256": "7fb963158ec1575e0b338690bd0b40a7caa9b6bd0dd8e289b4efc3e49f73e8a4"
+      "bytes": 2291,
+      "sha256": "e0d2ea2d617259422f005b455a9abad9653572c98c200d940f8b814b68a21921"
     },
     {
       "path": "outputs/event_distribution.csv",
-      "bytes": 867,
-      "sha256": "6fb5f0e2e8727a11f5cb5f3e094128d4984dee37c9f1c3c8ca24b45c9ebba1a2"
+      "bytes": 866,
+      "sha256": "477d94ae46ed2170cb7f1ba5d12b3b40c1656c0ccac3d01f0ab8bdb263ff5e2d"
     },
     {
       "path": "outputs/indicator_diagnostics.csv",
-      "bytes": 2076,
-      "sha256": "db9a24094cc6c0911b78359cc3627bf9565bad663ca98a1e0cc108811375c421"
+      "bytes": 88,
+      "sha256": "0bedd36c3a2fef45ece309f5ee85f416b4dd886ad5839716229296441d6e1bb7"
     },
     {
       "path": "outputs/surge_reconstruction_summary.json",
-      "bytes": 2981,
-      "sha256": "0d8444606781360aeebe62332de4870260a609166f905187fb652564fb7225fe"
+      "bytes": 1279,
+      "sha256": "888a366ee2c45963f3515f3cc948cb214e56b2c08043063cddbac12eb92e3acd"
     },
     {
       "path": "outputs/year_coverage.csv",
       "bytes": 974,
-      "sha256": "03d06910e45362eca11ca144570c805e1cd4e272ba3d18ce066a9a26fc0c5e21"
+      "sha256": "d935a10937dd8ba35f2ab858709641330aa24a24de729b27f124ded6e7b871e8"
     },
     {
       "path": "requirements.txt",
@@ -116,13 +121,13 @@
     },
     {
       "path": "scripts/build_manifest.py",
-      "bytes": 3244,
-      "sha256": "e0233d4c751a8cb1ecdfbf918e34b2cd2f415cabafc29d23671e2b77d0052adb"
+      "bytes": 3659,
+      "sha256": "79042da904a37e15c2f0134ed2014eca3cbdda4de60090421ba9951cf24babde"
     },
     {
       "path": "scripts/build_overview.py",
-      "bytes": 13896,
-      "sha256": "39cb5c91482b902d8796d92eea4c821522ccb11aca1062b166e9f8b259959e1f"
+      "bytes": 14133,
+      "sha256": "eb112717f5e768a526af56380b0e5d339fbf22e056a778022a04b63e1a8025b7"
     },
     {
       "path": "scripts/export_long.py",
@@ -130,29 +135,34 @@
       "sha256": "009d2aa99bc8781fe5614819b6a883cce92bec4e9e41f54f9de79f07df1a1dfe"
     },
     {
+      "path": "scripts/freeze_snapshot.py",
+      "bytes": 2712,
+      "sha256": "750aa02e7bfa2aef8a7b4b16ac72e567287c2b4269d1fef1c20e24aa832d96a9"
+    },
+    {
       "path": "scripts/recovered_surge.py",
-      "bytes": 8069,
-      "sha256": "02f9a2e7f473949c4b3c770bab7a1ef7079999d465b988509a36abd545ba97e5"
+      "bytes": 8132,
+      "sha256": "f12cdbcba75060fa76a65ed4571542a7e5aadedf0dadad2028b1d57ba5a83e10"
     },
     {
       "path": "scripts/reproduce_surges.py",
-      "bytes": 7856,
-      "sha256": "082c4110f4ee965341c6ab2005f77455ddc4cd3fd7dd17d43f001ca6a8eb1fb7"
+      "bytes": 7402,
+      "sha256": "9715eb2f4edfbb4747465996092a6fb5e9a2ac7bf14c4612647576acb628e7f3"
     },
     {
       "path": "scripts/test_validation.py",
-      "bytes": 2942,
-      "sha256": "1aacf02c75c28d442151d5e85a0a8cdb6861da5fc4cbf15ed8cd6d3482313256"
+      "bytes": 3202,
+      "sha256": "009a1489874f44f7d531e0393bcd211b374b5bb26d0124fa282ecad63e2d70ee"
     },
     {
       "path": "scripts/verify_evaluation.py",
-      "bytes": 7154,
-      "sha256": "5be95798e41f0e15064fa3b91c230fef905b64a8331008768d22675c85af8e07"
+      "bytes": 7229,
+      "sha256": "0962686247692d1f499059670e5e76b23b3b4c98b7f3faac1b1cca04e5d7f0ea"
     },
     {
       "path": "validation/README.md",
-      "bytes": 4874,
-      "sha256": "a26966be7c995efd6d5041c7bbc1afe2096ad10de4c0485938da80b71f8c710f"
+      "bytes": 5247,
+      "sha256": "3147e3d6ca4277877814a4f5d16a42b0963e97cb1c72d3a9a1b2e4d77b3c0a88"
     },
     {
       "path": "validation/binary_confusion_matrix.csv",
@@ -190,19 +200,44 @@
       "sha256": "3dfe01de51c733a036d7d35dbc2b55471ee0a270b82712e9b65a6098c00152c6"
     },
     {
+      "path": "validation/history/69_country_20261005/README.md",
+      "bytes": 388,
+      "sha256": "dfa0ee8f18755a3a8c4c4cc6c1eaa86c047c6bddda6107043c5da89d04c3a4f5"
+    },
+    {
+      "path": "validation/history/69_country_20261005/indicator_diagnostics.csv",
+      "bytes": 2076,
+      "sha256": "db9a24094cc6c0911b78359cc3627bf9565bad663ca98a1e0cc108811375c421"
+    },
+    {
+      "path": "validation/history/69_country_20261005/snapshot.json",
+      "bytes": 1215,
+      "sha256": "267e5648ccdeeacfe82273235b606945c70ebc802bb4e86b669808d497550f59"
+    },
+    {
+      "path": "validation/history/69_country_20261005/surge_provenance.json",
+      "bytes": 2267,
+      "sha256": "71249173f35066e0a4b51c094a441c34ae7ff027366521924e05d91a8c5ad690"
+    },
+    {
+      "path": "validation/history/69_country_20261005/surge_reconstruction_summary.json",
+      "bytes": 2981,
+      "sha256": "0d8444606781360aeebe62332de4870260a609166f905187fb652564fb7225fe"
+    },
+    {
       "path": "validation/human_audit_summary.csv",
       "bytes": 142,
       "sha256": "cb6176d2398bc9bebf12d86ac52e67bb4a90caebdca454d3ec7bfcc72ba06a35"
     },
     {
       "path": "validation/provenance.json",
-      "bytes": 4271,
-      "sha256": "c638a7d4c708e2b3f57c4a670113f1adbbd2e5c74d33edc752fffd855bef43d0"
+      "bytes": 4351,
+      "sha256": "3f4bc09e01a5c4563e40c8f8598985a0774f2a697e7bff0ad4bbd65599e86a41"
     },
     {
       "path": "validation/surge_provenance.json",
-      "bytes": 2267,
-      "sha256": "71249173f35066e0a4b51c094a441c34ae7ff027366521924e05d91a8c5ad690"
+      "bytes": 2839,
+      "sha256": "b688724ae9435ed71f92e3ed9b563fd5a26df620efe55a93368d28dcfb978fab"
     }
   ]
 }

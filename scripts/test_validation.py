@@ -57,6 +57,12 @@ class ReleaseValidationTests(unittest.TestCase):
         frame.loc[0, EVENT_COLUMNS[0] + "NormShock"] = 2
         self.rejected(frame, "Non-binary")
 
+    def test_inconsistent_count_screen_rejected(self):
+        frame = self.data.copy()
+        column = EVENT_COLUMNS[0] + "NormShockCountGt3"
+        frame.loc[0, column] = 1 - frame.loc[0, column]
+        self.rejected(frame, "Count-screened surge flags")
+
     def test_long_export_preserves_counts_and_rates(self):
         long = make_long(self.data)
         self.assertEqual(len(long), len(self.data) * 16)

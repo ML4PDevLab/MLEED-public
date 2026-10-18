@@ -1,0 +1,37 @@
+country,date,label,raw_count,stored_shock,stored_screened_shock,shock_and_raw_count_gt3
+DR Congo,2012-10-01,lethal environmental violence,3,1,1,0
+DR Congo,2013-05-01,environmental corruption,3,1,1,0
+DR Congo,2016-03-01,environmental activism,3,1,1,0
+DR Congo,2016-10-01,environmental activism,3,1,1,0
+Ghana,2015-06-01,environmental cooperation,3,1,1,0
+Honduras,2017-06-01,environmental corporate initiatives,3,1,1,0
+Kenya,2025-09-01,environmental corporate initiatives,1,1,1,0
+Mozambique,2023-12-01,environmental corporate initiatives,3,1,1,0
+Mozambique,2024-06-01,environmental cooperation,3,1,1,0
+Panama,2025-06-01,environmental corporate initiatives,1,1,1,0
+Panama,2025-09-01,environmental cooperation,0,1,1,0
+Panama,2025-10-01,environmental cooperation,0,1,1,0
+Panama,2025-10-01,environmental legal change,2,1,1,0
+Panama,2025-12-01,environmental legal change,3,1,1,0
+Peru,2012-02-01,environmental legal action,3,1,1,0
+Peru,2012-03-01,environmental legal action,3,1,1,0
+Peru,2012-06-01,sudden-onset environmental disaster,1,1,1,0
+Peru,2012-11-01,environmental -999,2,1,1,0
+Peru,2015-10-01,nonlethal environmental violence,3,1,1,0
+Peru,2023-12-01,lethal environmental violence,3,1,1,0
+Peru,2025-02-01,environmental activism,3,1,1,0
+Peru,2025-05-01,environmental security,1,1,1,0
+Peru,2025-07-01,environmental corruption,3,1,1,0
+Peru,2025-09-01,environmental corruption,2,1,1,0
+Rwanda,2017-06-01,lethal environmental violence,3,1,1,0
+Rwanda,2019-05-01,slow-onset environmental disaster,3,1,1,0
+Rwanda,2022-09-01,environmental legal change,3,1,1,0
+Solomon Islands,2013-03-01,environmental -999,3,1,1,0
+Solomon Islands,2013-09-01,environmental opinion,3,1,1,0
+Solomon Islands,2019-09-01,environmental protests,3,1,1,0
+Solomon Islands,2019-11-01,environmental -999,3,1,1,0
+Solomon Islands,2023-03-01,environmental legal action,3,1,1,0
+Solomon Islands,2024-08-01,slow-onset environmental disaster,3,1,1,0
+Tanzania,2012-01-01,slow-onset environmental disaster,3,1,1,0
+Tanzania,2016-11-01,environmental activism,3,1,1,0
+Tanzania,2017-02-01,nonlethal environmental violence,3,1,1,0

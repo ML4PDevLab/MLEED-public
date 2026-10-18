@@ -126,7 +126,7 @@ def main():
         "article_correct_fraction": human["correct_articles"] / human["reviewed_articles"],
         "selected_surges_valid_fraction": human["valid_surges"] / human["selected_surges"],
         "error_count_difference": human["reviewed_articles"] - human["correct_articles"] - human["event_error_flags"] - human["geographic_error_flags"],
-        "scope": "Descriptive purposive surge audit with borderline cases counted correct; does not estimate population-wide accuracy.",
+        "scope": "Descriptive audit of selected surges with borderline cases counted correct; the randomization procedure is not documented in retained records, and population-wide accuracy is not established.",
     }
     encoded = json.dumps(result, indent=2) + "\n"
     if args.check:

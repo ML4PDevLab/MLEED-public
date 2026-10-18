@@ -61,6 +61,6 @@
     "article_correct_fraction": 0.8318703578663066,
     "selected_surges_valid_fraction": 0.98,
     "error_count_difference": 14,
-    "scope": "Descriptive purposive surge audit with borderline cases counted correct; does not estimate population-wide accuracy."
+    "scope": "Descriptive audit of selected surges with borderline cases counted correct; the randomization procedure is not documented in retained records, and population-wide accuracy is not established."
   }
 }
