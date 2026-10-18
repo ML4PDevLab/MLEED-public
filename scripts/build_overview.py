@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the public MLEED panel and rebuild neutral overview outputs."""
+"""Validate the public MLEED panel and rebuild coverage and category summaries."""
 
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ DEFAULT_FIGURES = REPO_ROOT / "figures"
 
 START_DATE = pd.Timestamp("2012-01-01")
 END_DATE = pd.Timestamp("2025-12-01")
-EXPECTED_COUNTRIES = 69
+EXPECTED_COUNTRIES = 71
 EXPECTED_MONTHS = 168
 SCHEMA_FILE = REPO_ROOT / "metadata" / "schema.json"
 
@@ -159,7 +159,7 @@ def load_and_validate(path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
     if (denominator <= 0).any():
         raise ValueError("total_local_docs must be positive in every row")
     if (data["total_articles"] > denominator).any():
-        raise ValueError("Environmental article count exceeds local-document denominator")
+        raise ValueError("Screened article count exceeds local-document denominator")
     if ((data["total_label_events"] < data["total_articles"]) |
             (data["total_label_events"] > 2 * data["total_articles"])).any():
         raise ValueError("Label totals fall outside one to two labels per included article")
@@ -177,6 +177,10 @@ def load_and_validate(path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
                 raise ValueError(f"Missing indicator column: {derived}")
             if not set(data[derived].unique()).issubset({0, 1}):
                 raise ValueError(f"Non-binary values detected in {derived}")
+
+    diagnostics = build_indicator_diagnostics(data)
+    if len(diagnostics):
+        raise ValueError("Count-screened surge flags differ from NormShock and raw count greater than three")
 
     summary = {
         "data_file": path.name,
@@ -203,6 +207,7 @@ def load_and_validate(path: Path) -> tuple[pd.DataFrame, dict[str, object]]:
             "label_total_reconciliation": "pass",
             "normalization_reconciliation": "pass",
             "binary_surge_indicators": "pass",
+            "count_screen_rule": "pass",
         },
         "validation_scope": "Structural and arithmetic checks only; these do not establish source-collection completeness or classifier accuracy.",
     }
@@ -224,7 +229,7 @@ def build_coverage(data: pd.DataFrame, group: str) -> pd.DataFrame:
 
 
 def build_indicator_diagnostics(data: pd.DataFrame) -> pd.DataFrame:
-    """Expose departures from the literal suffix interpretation without changing data."""
+    """Check the documented count-screen rule without changing stored values."""
     output = []
     for label in EVENT_COLUMNS + AUXILIARY_COLUMNS:
         expected = (data[f"{label}NormShock"] == 1) & (data[label] > 3)
@@ -311,7 +316,7 @@ def main() -> None:
         "mismatching_cells": int(len(diagnostics)),
         "affected_label_series": int(diagnostics["label"].nunique()),
         "status": "unresolved" if len(diagnostics) else "consistent_with_comparison",
-        "interpretation": "A diagnostic comparison, not a verified reconstruction of the production algorithm. Stored indicators are unchanged.",
+        "interpretation": "All current stored screened flags equal NormShock == 1 and raw_count > 3. Full-window indicator reproduction is checked separately.",
     }
     print(json.dumps(quality_summary, indent=2))
 

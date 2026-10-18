@@ -1,39 +1,29 @@
-# Repository scope and publication release
+# Release scope
 
-The publication target is a data descriptor documenting construction, records, validation, limitations, and reuse. This package supports those functions with a fixed national panel and independently checkable numeric summaries.
+The current snapshot contains monthly country summaries for 71 countries from January 2012 through December 2025. Its counts, normalized values and surge fields are extracted from the pinned October 13, 2026 public export. The [source record](../metadata/source_snapshot_71_20261018.json) gives the extraction, hashes and changes from the earlier 69-country version.
 
-## Available now
+## Available materials
 
-| Material | Status |
+| Material | Contents |
 | --- | --- |
-| National country-month data | 69 countries, January 2012–December 2025; original bytes preserved |
-| Dictionaries | Human-readable descriptions, all 88 machine-readable fields, exact country names |
-| Coverage and category summaries | Rebuilt from the public CSV |
-| Structural validation | Schema, dates, keys, finite integer counts, label totals, normalization, binary domains |
-| Indicator diagnostics | 36 differences from a literal count-screen comparison |
-| Classifier validation | Six numeric aggregate files checked against 431-case confusion matrices |
-| Binary environmental gate | Separate 2×2 aggregate matrix with source hash and explicit label rules |
-| Recovered surge routine | Isolated definitions, inherited MIT notice, input hashes, and comparison script; frozen-indicator lineage unresolved |
-| Human-review summary | Selected-surge audit; randomization procedure is undocumented and incomplete error accounting is disclosed |
-| Reuse code | Category pooling and reporting rates, with tested safeguards |
-| File identity | Explicit manifest, SHA-256 checksums, snapshot metadata |
+| Country summaries | 11,928 rows and 88 fields; every country has 168 months |
+| Documentation | Country names, field definitions, reuse examples and source records |
+| Coverage summaries | Country/year reporting volumes and category distribution |
+| Structural checks | Schema, dates, keys, counts, denominator identities and indicator rules |
+| Surge reproduction | Exact match for 238,560 cells per family from the pinned complete source |
+| Classifier evidence | Unchanged 431-case matrices, including the binary gate |
+| Human review | Unchanged summary of 1,481 reviewed articles and 100 selected surges |
+| File identity | Version metadata, manifest and SHA-256 checksums |
 
-## Materials outside this package
+The earlier data and audit remain at [commit `81c30ac`](https://github.com/ML4PDevLab/MLEED-public/tree/81c30acb56d9d05779c92cb583c04b730b39c680). Current evaluation reports are historical evidence rather than a new validation sample for the 71-country update.
 
-Full news text, individual predictions, credentials, database dumps, third-party benchmark datasets, and manuscript drafts are excluded. National data do not confer rights over source publishers' text. The national and subnational dashboards remain companion products with potentially different inclusion rules and refresh schedules. No subnational data or 71-country extension is part of this national file.
+The package contains aggregates and code that checks and transforms them. Article text, individual predictions, credentials, database dumps and third-party benchmark data are excluded. The code does not rerun collection, translation, training, classification or geographic extraction. The regional/local dashboard provides a separate geographic product with its own counts and inclusion rules.
 
-The scripts validate and transform deposited aggregates and compare recovered surge outputs. They do not reproduce collection, translation, training, inference, or geographic extraction. The surge comparison can reproduce specific later inputs on the shared historical cells, but does not establish the exact frozen-indicator lineage. Current operational code is not evidence that its exact version produced an older CSV.
+## Remaining deposit items
 
-An audit on 29 September 2026 distinguished this fixed file from [a newer dashboard dataset](https://huggingface.co/datasets/zungru/mlp-counts/tree/b03f4a9bccea12f9608e4efcafc33bec2600657c). That pinned snapshot contains complete fields for 70 countries through April 2026, while May has zero-document and missing-normalized-value gaps. Complete aggregate fields do not certify collection or processing completeness. The audit does not support a 71-country release complete through mid-2026, so this repository retains the verified 69-country file and its actual endpoint.
+- Complete the known Libya processing cohort and document any resulting data revision; the present snapshot retains the published values and records the issue in its source metadata.
+- Record the extraction, model, source-inclusion and geographic versions used before the country aggregates; exact surge reproduction establishes the indicator calculation, not every earlier processing stage.
+- Resolve classifier split/model linkage and the human review's incomplete error accounting, as described in the [validation notes](../validation/README.md).
+- Assign authorized aggregate-data and original-code licenses, archive the approved version with a persistent identifier, and cite it in the paper. The copied surge definitions already carry their upstream MIT notice.
 
-## Requirements before a completed submission deposit
-
-1. Confirm the snapshot and country-month collection completeness. If extending to 71 countries or 2026, export and audit new aggregates, document the cutoff and changes, and preserve this snapshot.
-2. Record authorized aggregate-data and original-code licenses; both remain unspecified. The copied surge definitions already have their separately retained upstream MIT license.
-3. Link the national export to frozen extraction code, model versions, inference settings, source inclusion rules, and geographic versions. Supply reproducible code without credentials or unintended database writes.
-4. Reconcile the historical surge algorithms, 36 indicator discrepancies, and human-audit error accounting. Distinguish top-one and top-two scoring.
-5. Document evaluation split construction and linkage to model weights. Supply annotation guidance and safe test identifiers or an access route where rights permit.
-6. Archive the approved release in a suitable persistent repository, obtain a DOI, create a versioned GitHub release, and cite that version in the manuscript. A dashboard and a mutable GitHub branch do not substitute for an archived dataset.
-7. Check manuscript availability claims against the archive inventory. Do not describe unresolved licenses, missing code, or an uncreated DOI as completed.
-
-Metadata use `null` for unassigned licenses and DOI and `false` for unverified completeness and historical version linkage. These are explicit open items, not fields to fill by inference.
+Licenses and DOI remain `null` in metadata until assigned. A balanced monthly file establishes its structure; source collection completeness requires separate evidence.

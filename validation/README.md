@@ -1,6 +1,6 @@
 # Aggregate validation evidence
 
-This directory contains numeric summaries from the project evaluation archive. Source-file identities are recorded in [provenance.json](provenance.json); the package is covered by [SHA256SUMS](../SHA256SUMS). No news text or individual prediction records are included.
+This directory contains numeric summaries from the project evaluation archive. Source-file identities are recorded in [provenance.json](provenance.json); the package is covered by [SHA256SUMS](../SHA256SUMS). No news text or individual prediction records are included. The 71-country update retains the same 431-case classifier evidence and 1,481-article human review; it does not introduce a new evaluation sample. Current indicator reproduction is recorded separately in [surge_provenance.json](surge_provenance.json).
 
 ## Classifier reports
 
